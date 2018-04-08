@@ -58,7 +58,7 @@ public class BDDecoder extends ByteToMessageDecoder {
 
         out.add(Unpooled.copiedBuffer(bytes));
 
-        log.info("[{}]上行消息[{}]", host, CommonUtil.bytesToStr(bytes));
+        log.debug("[{}]上行消息[{}]", host, CommonUtil.bytesToStr(bytes));
         // 回复消息
         toResp(ctx, cmd);
     }

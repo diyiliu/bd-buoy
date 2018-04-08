@@ -3,7 +3,7 @@ package com.diyiliu.web.account;
 import com.diyiliu.web.account.dto.Account;
 import com.diyiliu.web.account.dto.AccountJpa;
 import com.diyiliu.web.buoy.dto.Buoy;
-import com.diyiliu.web.buoy.dto.BuoyJpa;
+import com.diyiliu.web.buoy.facade.BuoyJpa;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" type="text/css" href="/static/plugin/select2/select2.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/AdminLTE.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/plugin/bootstrap-slider/slider.css">
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap-slider/9.10.0/dist/css/bootstrap-slider.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -453,6 +453,7 @@
             });
 
     function tests(str) {
+        str = str.toString();
         var arr = str.split(".");
         var l = arr[1].length;
         var a = 6 - l;
@@ -469,15 +470,13 @@
 
         $.ajax({
             type: "post",
-            url: "queryVechInfo.do",
+            url: "buoy/queryBuoy",
             data: {
                 "fbmc": chep
             },
             dataType: "json",
             async: true,
             success: function (L) {
-
-
                 var vec = L[1][0];
                 $("#fbbh").text(L[0][0]);
                 $("#hideId").val(L[0][1]);
@@ -503,7 +502,7 @@
                 } else {
                     //$("#hssd").text(vec.sea_speed + " m/h");
                     //当无效定位的时候
-                    if (vec.gps_Positioning == 0) {
+                    if (vec.gpsLocation == 0) {
                         $("#dwzt").text("有效定位");
                     } else {
                         $("#dwzt").text("无效定位");
@@ -515,16 +514,16 @@
                         $("#bdjdhide").removeClass("hide");
                         $("#bdwdhide").removeClass("hide");
 
-                        if (vec.bd_longitude == 0) {
+                        if (vec.bdLng == 0) {
                             $("#bdjd").text("无定位");
                         } else {
-                            $("#bdjd").text(tests(vec.bd_longitude));
+                            $("#bdjd").text(tests(vec.bdLng));
                         }
 
-                        if (vec.bd_latitude == 0) {
+                        if (vec.bdLat == 0) {
                             $("#bdwd").text("无定位");
                         } else {
-                            $("#bdwd").text(tests(vec.bd_latitude));
+                            $("#bdwd").text(tests(vec.bdLat));
                         }
 
                     } else {
@@ -533,40 +532,40 @@
                     }
 
 
-                    if (vec.gps_longitude == 0.015498) {
+                    if (vec.gpsLng == 0.015498) {
                         $("#gpsjd").text("无定位");
-                    } else if (vec.gps_longitude == "0") {
-                        $("#gpsjd").text(vec.gps_longitude);
+                    } else if (vec.gpsLng == "0") {
+                        $("#gpsjd").text(vec.gpsLng);
                     } else {
-                        $("#gpsjd").text(tests(vec.gps_longitude));
+                        $("#gpsjd").text(tests(vec.gpsLng));
                     }
 
-                    if (vec.gps_latitude == 0.002728) {
+                    if (vec.gpsLat == 0.002728) {
                         $("#gpswd").text("无定位");
-                    } else if (vec.gps_latitude == "0") {
-                        $("#gpswd").text(vec.gps_latitude);
+                    } else if (vec.gpsLat == "0") {
+                        $("#gpswd").text(vec.gpsLat);
                     } else {
-                        $("#gpswd").text(tests(vec.gps_latitude));
+                        $("#gpswd").text(tests(vec.gpsLat));
                     }
 
-                    if (vec.sea_depth == null) {
+                    if (vec.temp == null) {
                         $("#hswd").text("无数据");
-                    } else if (vec.sea_depth == 555.35) {
+                    } else if (vec.temp == 555.35) {
                         $("#hswd").text("无效");
-                    } else if (vec.sea_depth > 160) {
+                    } else if (vec.temp > 160) {
                         $("#hswd").text("异常");
                     } else {
-                        $("#hswd").text(vec.sea_depth + " ℃");
+                        $("#hswd").text(vec.temp + " ℃");
                     }
 
 
-                    if (vec.Cell_voltage == 255) {
+                    if (vec.voltage == 255) {
                         $("#sydy").text("无效数据");
                     } else {
-                        $("#sydy").text(vec.Cell_voltage + " mv");
+                        $("#sydy").text(vec.voltage + " mv");
                     }
 
-                    $("#cjsj").text(vec.gps_time);
+                    $("#cjsj").text(vec.gpsTime);
 
 
                     //map.cleanOverlays();
@@ -580,25 +579,28 @@
                     map.clearMap();//清除前面的marker
 
 
-                    var url = "images/ff.png";
+                    var url = "static/image/ff.png";
                     for (var i = 0, marker; i < L[1].length; i++) {
                         vec = L[1][i];
                         //加载图标
 
-                        if (vec.gps_longitude != 0 || vec.gps_latitude != 0) {
+                        if (vec.gpsLng != 0 || vec.gpsLat != 0) {
 
                             var marker = new AMap.Marker({
-                                position: [vec.gps_longitude, vec.gps_latitude],
+                                position: [vec.gpsLng, vec.gpsLat],
                                 icon: url,
                                 map: map
                             });
 
-                            marker.content = "<span style='font-size:15px;color:black;'>浮标编号：" + L[0][0] + "</span><br/><span style='font-size:15px;color:black;'>海水温度：" + vec.sea_depth + "&nbsp;&nbsp;℃" + "</span><br/><span style='font-size:15px;color:black;'>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;压：" + vec.Cell_voltage + "&nbsp;&nbsp;mv" + "</span><br/><span style='font-size:15px;color:black;'>采集时间：" + vec.gps_time + "</span>";
+                            marker.content = "<span style='font-size:15px;color:black;'>浮标编号：" + L[0][0] + "</span><br/>" +
+                                    "<span style='font-size:15px;color:black;'>海水温度：" + vec.temp + "&nbsp;&nbsp;℃" + "</span><br/>" +
+                                    "<span style='font-size:15px;color:black;'>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;压：" + vec.voltage + "&nbsp;&nbsp;mv" + "</span><br/>" +
+                                    "<span style='font-size:15px;color:black;'>采集时间：" + vec.gpsTime + "</span>";
 
                             marker.on('click', markerClick);
 
-                            var a = vec.gps_longitude;
-                            var b = vec.gps_latitude;
+                            var a = vec.gpsLng;
+                            var b = vec.gpsLat;
 
                         }
 

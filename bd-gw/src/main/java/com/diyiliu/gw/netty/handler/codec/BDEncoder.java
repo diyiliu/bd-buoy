@@ -28,7 +28,7 @@ public class BDEncoder extends MessageToByteEncoder {
         byte[] bytes = new byte[buf.readableBytes()];
         buf.readBytes(bytes);
 
-        log.info("[{}]下行消息[{}]", host, CommonUtil.bytesToStr(bytes));
+        log.debug("[{}]下行消息[{}]", host, CommonUtil.bytesToStr(bytes));
         out.writeBytes(bytes);
     }
 }

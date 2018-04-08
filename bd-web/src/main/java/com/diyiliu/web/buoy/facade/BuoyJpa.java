@@ -1,5 +1,6 @@
-package com.diyiliu.web.buoy.dto;
+package com.diyiliu.web.buoy.facade;
 
+import com.diyiliu.web.buoy.dto.Buoy;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -12,4 +13,6 @@ import java.util.List;
 public interface BuoyJpa extends JpaRepository<Buoy, Long> {
 
     List<Buoy> findBuoysByTypeOrderByName(int type);
+
+    Buoy findBuoyByName(String name);
 }

@@ -34,7 +34,6 @@ public class BDHandler extends ChannelInboundHandlerAdapter {
         );
     }
 
-
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf buf = (ByteBuf) msg;
@@ -60,7 +59,7 @@ public class BDHandler extends ChannelInboundHandlerAdapter {
         if (evt instanceof IdleStateEvent) {
             IdleStateEvent event = (IdleStateEvent) evt;
             if (IdleState.READER_IDLE == event.state()) {
-                log.info("读超时...[{}], 断开连接！", key);
+                //log.info("读超时...[{}], 断开连接！", key);
                 //ctx.close();
             } else if (IdleState.WRITER_IDLE == event.state()) {
                 log.warn("写超时...");

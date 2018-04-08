@@ -58,11 +58,11 @@ public class BDDataProcess implements IDataProcess {
         if (flag == 0xFE) {
             switch (cmd) {
                 case 0x02:
-                    log.debug("收到实时数据[{}]...", CommonUtil.bytesToStr(content));
+                    log.info("收到实时数据[{}]...", CommonUtil.bytesToStr(content));
                     parseData(content);
                     break;
                 case 0x07:
-                    log.debug("收到心跳数据...");
+                    log.info("收到心跳数据...");
                     break;
                 default:
                     log.warn("收到[{}]数据...", String.format("%x", cmd));
