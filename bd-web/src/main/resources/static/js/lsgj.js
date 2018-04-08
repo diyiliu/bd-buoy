@@ -2,7 +2,7 @@
 $(function(){
 		
 		$(".lsgj").click(function() {
-		jsparray.push("historylTrajectory.jsp");
+		jsparray.push("hisTrace");
 		$("#returnBtn").addClass("color-change");
 		lsgj();
 	});
@@ -15,7 +15,7 @@ function lsgj()
 	$("#hideId2").val(0);
 	$(".homecontext").addClass("hide");
 	$(".jsppage").removeClass("hide");
-	$.post("historylTrajectory.jsp",function(data,status){
+	$.post("hisTrace",function(data,status){
 		$(".jsppage").html(data);
 	});
 }

@@ -39,7 +39,6 @@ public class BuoyInfo {
     @Column(name = "bd_latitude")
     private Double bdLat;
 
-
     // GPS定位状态
     @Column(name = "gps_Positioning")
     private Integer gpsLocation;
@@ -71,4 +70,8 @@ public class BuoyInfo {
     // 电池电压
     @Column(name = "Cell_voltage")
     private Integer voltage;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "static_id")
+    private Buoy buoy;
 }

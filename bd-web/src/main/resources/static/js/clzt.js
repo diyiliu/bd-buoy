@@ -3,7 +3,7 @@ var allpage;
 	//初始化加载
 	$("#clzt").click(function(){
     		$("#returnBtn").addClass("color-change");
-    		jsparray.push("carState.jsp");
+    		jsparray.push("hisInfo");
     		page=0;
     		clzt();
     		
@@ -13,12 +13,12 @@ var allpage;
 	//从详细详细跳
 	$(".clzt").click(function(){
 		$("#returnBtn").addClass("color-change");
-		jsparray.push("carState.jsp");
+		jsparray.push("hisInfo");
 		
 		$(".homecontext").addClass("hide");
 		$(".jsppage").removeClass("hide");
 		
-		$.post("carState.jsp",function(data,status){
+		$.post("hisInfo",function(data,status){
 		$(".jsppage").html(data);
 		});
 		
@@ -31,6 +31,7 @@ var allpage;
 	});
 	
 	function test(str) {
+		str = str.toString();
 		var arr = str.split(".");
 		var l = arr[1].length;
 		var a = 6 - l;
@@ -45,10 +46,9 @@ var allpage;
 	
 	function cxfb(user,fbmc,time)
 	{
-		
 		$.ajax({
 				type : "post",
-				url : "queryAllVehCurr.do",
+				url : "buoy/queryHisInfo",
 				data : 
 				{
 					"user":user,
@@ -86,70 +86,68 @@ var allpage;
 						var hswd;
 						var dy;
 						var cjsj;
-						
-							if (fbsj.name == null){
-								fbmc1="无数据";
-							}else{
-								fbmc1=fbsj.name;
-							}
-							
-							
-							if (fbsj.sim == null) {
-								fbbh = "无数据";
-							} else{
-								fbbh = fbsj.sim;
-							}
-							
-							/*if (fbsj.sea_speed == null) {
-								hssd = "无数据";
-							} else{
-								hssd = fbsj.sea_speed+" m/h";
-							}*/
-							
-							if (fbsj.gps_Positioning =="0") {
-								dwzt = "有效定位";
-							} else if(fbsj.gps_Positioning =="1") {
-								dwzt ="无效定位";
-							}
-							
-							if (fbsj.gps_longitude == null) {
-								jd = "无数据";
-							} else if(fbsj.gps_longitude == "0"){
-								jd = fbsj.gps_longitude;
-							}else{
-								jd = test(fbsj.gps_longitude);
-							}	
 
-							if (fbsj.gps_latitude == null) {
-								wd = "无数据";
-							} else if(fbsj.gps_latitude == "0"){
-								wd = fbsj.gps_latitude;
-							}else{
-								wd = test(fbsj.gps_latitude);
-							}
-							
-							if (fbsj.sea_depth == null) {
-								hswd = "无数据";
-							}else if(fbsj.sea_depth == 555.35){
-								hswd="无效"
-							}else if(fbsj.sea_depth > 160){
-								hswd ="异常"
-							}else{
-								hswd = fbsj.sea_depth+" ℃";
-							}
-							
-							if (fbsj.Cell_voltage == null) {
-								dy = "无数据";
-							} else{
-								dy = fbsj.Cell_voltage+" mv";
-							}
-							
-							if (fbsj.GPS_time == null) {
-								cjsj = "无数据";
-							} else{
-								cjsj = fbsj.GPS_time;
-							}
-	
+                        if (fbsj.buoy.name == null){
+                            fbmc1="无数据";
+                        }else{
+                            fbmc1=fbsj.buoy.name;
+                        }
+
+                        if (fbsj.buoy.sim == null) {
+                            fbbh = "无数据";
+                        } else{
+                            fbbh = fbsj.buoy.sim;
+                        }
+
+                        /*if (fbsj.sea_speed == null) {
+                            hssd = "无数据";
+                        } else{
+                            hssd = fbsj.sea_speed+" m/h";
+                        }*/
+
+                        if (fbsj.gpsLocation =="0") {
+                            dwzt = "有效定位";
+                        } else if(fbsj.gpsLocation =="1") {
+                            dwzt ="无效定位";
+                        }
+
+                        if (fbsj.gpsLng == null) {
+                            jd = "无数据";
+                        } else if(fbsj.gpsLng == "0"){
+                            jd = fbsj.gpsLng;
+                        }else{
+                            jd = test(fbsj.gpsLng);
+                        }
+
+                        if (fbsj.gpsLat == null) {
+                            wd = "无数据";
+                        } else if(fbsj.gpsLat == "0"){
+                            wd = fbsj.gpsLat;
+                        }else{
+                            wd = test(fbsj.gpsLat);
+                        }
+
+                        if (fbsj.temp == null) {
+                            hswd = "无数据";
+                        }else if(fbsj.temp == 555.35){
+                            hswd="无效"
+                        }else if(fbsj.temp > 160){
+                            hswd ="异常"
+                        }else{
+                            hswd = fbsj.temp+" ℃";
+                        }
+
+                        if (fbsj.voltage == null) {
+                            dy = "无数据";
+                        } else{
+                            dy = fbsj.voltage+" mv";
+                        }
+
+                        if (fbsj.gpsTime == null) {
+                            cjsj = "无数据";
+                        } else{
+                            cjsj = fbsj.gpsTime;
+                        }
 						
 						
 					
@@ -159,33 +157,22 @@ var allpage;
 						$("#allpage").text(Math.ceil(allcount/15));
 						$("#currentpage").text(( parseInt(page)+1)+"/"+Math.ceil(allcount/15));
 						allpage=Math.ceil(allcount/15);
-						
-						
-						
-						function add(){
-					       
-							t.row.add( [
-							            
-					                    '<input type="checkbox" class="minimal" value='+fbsj.static_id+'>',
-					                    '<td >' + fbmc1 + '</td>',
-										'<td >' + fbbh + '</td>',
-										/*'<td >' + hssd + '</td>',*/
-										'<td >' + dwzt + '</td>',
-										'<td >' + jd + '</td>',
-										'<td >' + wd + '</td>',
-										'<td >' + hswd +'</td>',
-										'<td >' + dy +'</td>',
-										'<td >' + cjsj + '</td>'
-					                ]).draw();
-					              
-									};
-									
-						$(function(){
-							add();
-						});
-						
-						
-					}
+
+
+                        t.row.add( [
+
+                            '<input type="checkbox" class="minimal" value='+fbsj.buoyId+'>',
+                            '<td >' + fbmc1 + '</td>',
+                            '<td >' + fbbh + '</td>',
+                            /*'<td >' + hssd + '</td>',*/
+                            '<td >' + dwzt + '</td>',
+                            '<td >' + jd + '</td>',
+                            '<td >' + wd + '</td>',
+                            '<td >' + hswd +'</td>',
+                            '<td >' + dy +'</td>',
+                            '<td >' + cjsj + '</td>'
+                        ]).draw();
+                    }
 				}
 					
 					
@@ -201,20 +188,15 @@ var allpage;
 				
 		
 			});
-		
-		
-		
-	   
 	}
 	
 	
     	function clzt()
     	{
-    		
 			$(".homecontext").addClass("hide");
 			$(".jsppage").removeClass("hide");
 			
-			$.post("carState.jsp",function(data,status){
+			$.post("hisInfo",function(data,status){
 			$(".jsppage").html(data);
 			});
 			
@@ -222,7 +204,7 @@ var allpage;
 			var time=$("#hidetime").val();
 			$.ajax({
 					type : "post",
-					url : "queryAllVehCurr.do",
+					url : "buoy/queryHisInfo",
 					data : 
 					{
 						"user":user,
@@ -237,7 +219,10 @@ var allpage;
 						var fbCurrents=l[1];
 						
 						
-						$(".clztlb table").children("tbody").empty();
+						//$(".clztlb table").children("tbody").empty();
+
+                        var t = $('#tableL').DataTable();
+                        t.clear();
 						
 						for ( var i = 0; i < fbCurrents.length; i++) {
 
@@ -252,18 +237,18 @@ var allpage;
 							var hswd;
 							var dy;
 							var cjsj;
-							
-								if (fbsj.name == null){
+
+								if (fbsj.buoy.name == null){
 									fbmc1="无数据";
 								}else{
-									fbmc1=fbsj.name;
+									fbmc1=fbsj.buoy.name;
 								}
 								
 								
-								if (fbsj.sim == null) {
+								if (fbsj.buoy.sim == null) {
 									fbbh = "无数据";
 								} else{
-									fbbh = fbsj.sim;
+									fbbh = fbsj.buoy.sim;
 								}
 								
 								/*if (fbsj.sea_speed == null) {
@@ -272,86 +257,76 @@ var allpage;
 									hssd = fbsj.sea_speed+" m/h";
 								}*/
 								
-								if (fbsj.gps_Positioning =="0") {
+								if (fbsj.gpsLocation =="0") {
 									dwzt = "有效定位";
-								} else if(fbsj.gps_Positioning =="1") {
+								} else if(fbsj.gpsLocation =="1") {
 									dwzt ="无效定位";
 								}
 								
-								if (fbsj.gps_longitude == null) {
+								if (fbsj.gpsLng == null) {
 									jd = "无数据";
-								} else if(fbsj.gps_longitude == "0"){
-									jd = fbsj.gps_longitude;
+								} else if(fbsj.gpsLng == "0"){
+									jd = fbsj.gpsLng;
 								}else{
-									jd = test(fbsj.gps_longitude);
+									jd = test(fbsj.gpsLng);
 								}	
 
-								if (fbsj.gps_latitude == null) {
+								if (fbsj.gpsLat == null) {
 									wd = "无数据";
-								} else if(fbsj.gps_latitude == "0"){
-									wd = fbsj.gps_latitude;
+								} else if(fbsj.gpsLat == "0"){
+									wd = fbsj.gpsLat;
 								}else{
-									wd = test(fbsj.gps_latitude);
+									wd = test(fbsj.gpsLat);
 								}
 								
-								if (fbsj.sea_depth == null) {
+								if (fbsj.temp == null) {
 									hswd = "无数据";
-								}else if(fbsj.sea_depth == 555.35){
+								}else if(fbsj.temp == 555.35){
 									hswd="无效"
-								}else if(fbsj.sea_depth > 160){
+								}else if(fbsj.temp > 160){
 									hswd ="异常"
 								}else{
-									hswd = fbsj.sea_depth+" ℃";
+									hswd = fbsj.temp+" ℃";
 								}
 								
-								if (fbsj.Cell_voltage == null) {
+								if (fbsj.voltage == null) {
 									dy = "无数据";
 								} else{
-									dy = fbsj.Cell_voltage+" mv";
+									dy = fbsj.voltage+" mv";
 								}
 								
-								if (fbsj.GPS_time == null) {
+								if (fbsj.gpsTime == null) {
 									cjsj = "无数据";
 								} else{
-									cjsj = fbsj.GPS_time;
+									cjsj = fbsj.gpsTime;
 								}
 		
-							
-							
-						
+
 							
 							//分页显示
 							$("#allcount").text(allcount);
 							$("#allpage").text(Math.ceil(allcount/15));
 							$("#currentpage").text(( parseInt(page)+1)+"/"+Math.ceil(allcount/15));
 							allpage=Math.ceil(allcount/15);
-							
-							
-							
-							function add(){
-						        var t = $('#tableL').DataTable();
-								t.row.add( [
-								            
-						                    '<input type="checkbox" class="minimal" value='+fbsj.static_id+'>',
-						                    '<td >' + fbmc1 + '</td>',
-											'<td >' + fbbh + '</td>',
-											/*'<td >' + hssd + '</td>',*/
-											'<td >' + dwzt + '</td>',
-											'<td >' + jd + '</td>',
-											'<td >' + wd + '</td>',
-											'<td >' + hswd +'</td>',
-											'<td >' + dy +'</td>',
-											'<td >' + cjsj + '</td>'
-						                ]).draw();
-						              
-										};
-										
-							$(function(){
-								add();
-							});
-							
-							
-						}
+
+
+
+                            t.row.add( [
+
+                                '<input type="checkbox" class="minimal" value='+fbsj.buoyId+'>',
+                                '<td >' + fbmc1 + '</td>',
+                                '<td >' + fbbh + '</td>',
+                                /*'<td >' + hssd + '</td>',*/
+                                '<td >' + dwzt + '</td>',
+                                '<td >' + jd + '</td>',
+                                '<td >' + wd + '</td>',
+                                '<td >' + hswd +'</td>',
+                                '<td >' + dy +'</td>',
+                                '<td >' + cjsj + '</td>'
+                            ]).draw();
+
+
+                        }
 						$("#fbuser").val(user);
 						$(".fbtime").val($("#hidetime").val());
 						$("#hidetime").val($(".fbtime").val());

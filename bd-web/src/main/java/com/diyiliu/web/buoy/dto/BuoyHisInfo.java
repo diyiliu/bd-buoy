@@ -15,11 +15,11 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "current_ls")
-public class BuoyHisInfo extends BuoyInfo{
+public class BuoyHisInfo extends BuoyInfo {
 
     @Id
     private Long id;
 
-    @Column(name = "static_id")
+    @Column(name = "static_id", insertable = false, updatable = false)
     private Long buoyId;
 }

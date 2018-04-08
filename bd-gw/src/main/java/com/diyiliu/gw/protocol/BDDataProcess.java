@@ -152,7 +152,7 @@ public class BDDataProcess implements IDataProcess {
 
         int t = buf.readShort();
         if (tp != 0xFFFF & tp != 0xFFFE) {
-            temp = CommonUtil.keepDecimal(t * 0.01, 2);
+            temp = CommonUtil.keepDecimal(t * 0.01, 2) - 100;
         }
 
         // 电池电压
