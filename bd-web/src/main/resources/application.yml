@@ -1,0 +1,39 @@
+# https://docs.spring.io/spring-boot/docs/2.0.0.RELEASE/reference/htmlsingle/#common-application-properties
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# SPRING
+spring:
+
+  # freemarker
+  freemarker:
+    template-loader-path: 'classpath:/template/'
+
+  mvc:
+    static-path-pattern: '/static/**'
+
+  resources:
+    static-locations: 'classpath:/static/'
+
+  #json
+  jackson:
+    locale: zh_CN
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  # DATASOURCE
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: 'jdbc:mysql://192.168.1.51:3306/beidou?useUnicode=true&characterEncoding=UTF-8'
+    username: root
+    password: 123456
+
+  jpa:
+    show-sql: true
+
+# LOGGING
+logging:
+  config: 'classpath:logback.xml'

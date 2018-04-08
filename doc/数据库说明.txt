@@ -1,0 +1,10 @@
+数据库名称为beidou
+
+
+current:这是实时解析表。
+current_ls：这个是解析数据历史表。
+data:这个是原始数据表。
+login：登录用户表。
+static：浮标编号。
+
+table:数据库表结构。

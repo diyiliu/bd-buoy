@@ -1,0 +1,38 @@
+group 'com.diyiliu'
+version '1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+ext{
+    springBootVersion='2.0.0.RELEASE'
+}
+
+dependencies {
+    compile project(':dyl-plugin')
+
+    // spring-boot
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "$springBootVersion"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: "$springBootVersion"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-cache', version: "$springBootVersion"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "$springBootVersion"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: "${springBootVersion}"
+
+    // web
+    compile group: 'org.webjars', name: 'jquery', version: '3.2.1'
+    compile group: 'org.webjars.npm', name: 'jquery-easyui', version: '1.5.2'
+
+    compile group: 'org.webjars', name: 'bootstrap', version: '3.3.7'
+    compile group: 'org.webjars.npm', name: 'bootstrap-datepicker', version: '1.7.1'
+    compile group: 'org.webjars.npm', name: 'bootstrap-timepicker', version: '0.5.2'
+    compile group: 'org.webjars.npm', name: 'bootstrap-slider', version: '9.10.0'
+
+    compile group: 'org.webjars', name: 'font-awesome', version: '4.7.0'
+}

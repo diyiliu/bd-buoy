@@ -1,0 +1,101 @@
+[INFO ] [2018-04-08 08:58:00] org.springframework.context.support.ClassPathXmlApplicationContext [589] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@31ef45e3: startup date [Sun Apr 08 08:58:00 CST 2018]; root of context hierarchy
+[INFO ] [2018-04-08 08:58:01] org.springframework.beans.factory.xml.XmlBeanDefinitionReader [316] - Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO ] [2018-04-08 09:00:44] org.springframework.context.support.ClassPathXmlApplicationContext [589] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@31ef45e3: startup date [Sun Apr 08 09:00:44 CST 2018]; root of context hierarchy
+[INFO ] [2018-04-08 09:00:44] org.springframework.beans.factory.xml.XmlBeanDefinitionReader [316] - Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO ] [2018-04-08 09:00:47] com.alibaba.druid.pool.DruidDataSource [854] - {dataSource-1} inited
+[INFO ] [2018-04-08 09:00:47] org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor [275] - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] [2018-04-08 09:00:48] com.diyiliu.gw.netty.server.BDServer [54] - 北斗网关服务器启动, 端口[5003]...
+[INFO ] [2018-04-08 09:00:50] com.diyiliu.gw.support.task.DeviceInfoTask [31] - 刷新设备列表...
+[INFO ] [2018-04-08 09:01:43] org.springframework.context.support.ClassPathXmlApplicationContext [589] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6aba2b86: startup date [Sun Apr 08 09:01:43 CST 2018]; root of context hierarchy
+[INFO ] [2018-04-08 09:01:43] org.springframework.beans.factory.xml.XmlBeanDefinitionReader [316] - Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO ] [2018-04-08 09:01:45] com.alibaba.druid.pool.DruidDataSource [854] - {dataSource-1} inited
+[INFO ] [2018-04-08 09:01:46] org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor [275] - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] [2018-04-08 09:01:46] com.diyiliu.gw.netty.server.BDServer [54] - 北斗网关启动, 端口[6603]...
+[INFO ] [2018-04-08 09:01:49] com.diyiliu.gw.support.task.DeviceInfoTask [31] - 刷新设备列表...
+[INFO ] [2018-04-08 09:02:24] com.diyiliu.gw.netty.handler.BDHandler [25] - [223.104.254.157:37711]建立连接...
+[INFO ] [2018-04-08 09:02:38] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:03:08] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:03:38] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:04:08] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:04:38] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:05:08] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:05:38] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:06:08] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:06:37] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:07:08] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:07:38] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:08:08] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:08:37] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:09:08] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:09:37] com.diyiliu.gw.protocol.BDDataProcess [65] - 收到心跳数据...
+[INFO ] [2018-04-08 09:31:15] com.diyiliu.web.Application [50] - Starting Application on DIYILIU with PID 18488 (E:\Workspace\self\bd-buoy\bd-web\out\production\classes started by DIYILIU in E:\Workspace\self\bd-buoy)
+[INFO ] [2018-04-08 09:31:15] com.diyiliu.web.Application [652] - No active profile set, falling back to default profiles: default
+[INFO ] [2018-04-08 09:31:15] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [589] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2892dae4: startup date [Sun Apr 08 09:31:15 CST 2018]; root of context hierarchy
+[INFO ] [2018-04-08 09:31:18] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [328] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f855ecfd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] [2018-04-08 09:31:18] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [91] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [2018-04-08 09:31:18] org.apache.coyote.http11.Http11NioProtocol [180] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [2018-04-08 09:31:18] org.apache.catalina.core.StandardService [180] - Starting service [Tomcat]
+[INFO ] [2018-04-08 09:31:18] org.apache.catalina.core.StandardEngine [180] - Starting Servlet Engine: Apache Tomcat/8.5.28
+[INFO ] [2018-04-08 09:31:18] org.apache.catalina.core.AprLifecycleListener [180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\Develop\Java\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\oracle\product\11.1.0\client_1\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;E:\Develop\Java\jdk1.8.0_45\bin;E:\Develop\Java\jdk1.8.0_45\jre\bin;D:\Program Files\TortoiseSVN\bin;E:\Develop\Apache\apache-maven-3.5.0\bin;E:\Develop\Gradle\gradle-3.5\bin;C:\Program Files\PuTTY\;D:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;E:\Develop\Apache\zookeeper-3.4.9\bin;E:\Develop\Scala\scala-2.12.4\bin;D:\Program Files\nodejs\;d:\Ruby24-x64\bin;C:\Users\DIYILIU\AppData\Local\Microsoft\WindowsApps;;d:\Program Files (x86)\Fiddler2;C:\Users\DIYILIU\AppData\Roaming\npm;.]
+[INFO ] [2018-04-08 09:31:18] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [180] - Initializing Spring embedded WebApplicationContext
+[INFO ] [2018-04-08 09:31:18] org.springframework.web.context.ContextLoader [285] - Root WebApplicationContext: initialization completed in 3384 ms
+[INFO ] [2018-04-08 09:31:20] org.springframework.boot.web.servlet.ServletRegistrationBean [185] - Servlet dispatcherServlet mapped to [/]
+[INFO ] [2018-04-08 09:31:20] org.springframework.boot.web.servlet.FilterRegistrationBean [243] - Mapping filter: 'characterEncodingFilter' to: [/*]
+[INFO ] [2018-04-08 09:31:20] org.springframework.boot.web.servlet.FilterRegistrationBean [243] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[INFO ] [2018-04-08 09:31:20] org.springframework.boot.web.servlet.FilterRegistrationBean [243] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[INFO ] [2018-04-08 09:31:20] org.springframework.boot.web.servlet.FilterRegistrationBean [243] - Mapping filter: 'requestContextFilter' to: [/*]
+[INFO ] [2018-04-08 09:31:20] org.springframework.boot.web.servlet.FilterRegistrationBean [243] - Mapping filter: 'httpTraceFilter' to: [/*]
+[INFO ] [2018-04-08 09:31:20] org.springframework.boot.web.servlet.FilterRegistrationBean [243] - Mapping filter: 'webMvcMetricsFilter' to: [/*]
+[INFO ] [2018-04-08 09:31:20] com.alibaba.druid.pool.DruidDataSource [106] - {dataSource-1} inited
+[INFO ] [2018-04-08 09:31:21] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [361] - Building JPA container EntityManagerFactory for persistence unit 'default'
+[INFO ] [2018-04-08 09:31:21] org.hibernate.jpa.internal.util.LogHelper [31] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+[INFO ] [2018-04-08 09:31:21] org.hibernate.Version [45] - HHH000412: Hibernate Core {5.2.14.Final}
+[INFO ] [2018-04-08 09:31:21] org.hibernate.cfg.Environment [213] - HHH000206: hibernate.properties not found
+[INFO ] [2018-04-08 09:31:21] org.hibernate.annotations.common.Version [66] - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO ] [2018-04-08 09:31:21] org.hibernate.dialect.Dialect [157] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[INFO ] [2018-04-08 09:31:22] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [394] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter [567] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2892dae4: startup date [Sun Apr 08 09:31:15 CST 2018]; root of context hierarchy
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [548] - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.diyiliu.web.account.HomeController.index()
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [548] - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.diyiliu.web.account.HomeController.home(javax.servlet.http.HttpSession,org.springframework.ui.Model)
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [548] - Mapped "{[/login],methods=[POST]}" onto public com.diyiliu.web.account.dto.Account com.diyiliu.web.account.HomeController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession)
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [548] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping [548] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [373] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [373] - Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping [373] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO ] [2018-04-08 09:31:24] org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping [61] - Adding welcome page template: index
+[INFO ] [2018-04-08 09:31:24] org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer [131] - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+[INFO ] [2018-04-08 09:31:25] org.quartz.impl.StdSchedulerFactory [1208] - Using default implementation for ThreadExecutor
+[INFO ] [2018-04-08 09:31:25] org.quartz.core.SchedulerSignalerImpl [61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] [2018-04-08 09:31:25] org.quartz.core.QuartzScheduler [229] - Quartz Scheduler v.2.3.0 created.
+[INFO ] [2018-04-08 09:31:25] org.quartz.simpl.RAMJobStore [155] - RAMJobStore initialized.
+[INFO ] [2018-04-08 09:31:25] org.quartz.core.QuartzScheduler [294] - Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] [2018-04-08 09:31:25] org.quartz.impl.StdSchedulerFactory [1362] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] [2018-04-08 09:31:25] org.quartz.impl.StdSchedulerFactory [1366] - Quartz scheduler version: 2.3.0
+[INFO ] [2018-04-08 09:31:25] org.quartz.core.QuartzScheduler [2287] - JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@1693ff90
+[INFO ] [2018-04-08 09:31:25] org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping [548] - Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+[INFO ] [2018-04-08 09:31:25] org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping [548] - Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+[INFO ] [2018-04-08 09:31:25] org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping [548] - Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[INFO ] [2018-04-08 09:31:25] org.springframework.jmx.export.annotation.AnnotationMBeanExporter [434] - Registering beans for JMX exposure on startup
+[INFO ] [2018-04-08 09:31:25] org.springframework.jmx.export.annotation.AnnotationMBeanExporter [896] - Bean with name 'dataSource' has been autodetected for JMX exposure
+[INFO ] [2018-04-08 09:31:25] org.springframework.jmx.export.annotation.AnnotationMBeanExporter [669] - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+[INFO ] [2018-04-08 09:31:25] org.springframework.context.support.DefaultLifecycleProcessor [351] - Starting beans in phase 2147483647
+[INFO ] [2018-04-08 09:31:25] org.springframework.scheduling.quartz.SchedulerFactoryBean [686] - Starting Quartz Scheduler now
+[INFO ] [2018-04-08 09:31:25] org.quartz.core.QuartzScheduler [547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] [2018-04-08 09:31:25] org.apache.coyote.http11.Http11NioProtocol [180] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [2018-04-08 09:31:25] org.apache.tomcat.util.net.NioSelectorPool [180] - Using a shared selector for servlet write/read
+[INFO ] [2018-04-08 09:31:25] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [205] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [2018-04-08 09:31:25] com.diyiliu.web.Application [59] - Started Application in 11.245 seconds (JVM running for 13.875)
+[INFO ] [2018-04-08 09:31:26] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [180] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[INFO ] [2018-04-08 09:31:26] org.springframework.web.servlet.DispatcherServlet [494] - FrameworkServlet 'dispatcherServlet': initialization started
+[INFO ] [2018-04-08 09:31:26] org.springframework.web.servlet.DispatcherServlet [513] - FrameworkServlet 'dispatcherServlet': initialization completed in 45 ms
+[INFO ] [2018-04-08 09:32:48] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator [47] - HHH000397: Using ASTQueryTranslatorFactory
