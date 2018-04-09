@@ -122,4 +122,25 @@ public class BuoyController {
         return list;
     }
 
+
+    @PostMapping("/hisTrace")
+    public List hisTrace(@RequestParam String cph, @RequestParam String startime,  @RequestParam String endtime){
+        Buoy buoy = buoyJpa.findBuoyByName(cph);
+
+
+        List list = new ArrayList();
+        if (buoy == null) {
+            list.add(0);
+
+            return list;
+        }
+
+        long buoyId = buoy.getId();
+        Date sDate = DateUtil.stringToDate(startime);
+        Date eDate = DateUtil.stringToDate(endtime);
+        List hisList = buoyHisInfoJpa.findByBuoyIdAndGpsTimeBetweenOrderByGpsTimeDesc(buoyId, sDate, eDate);
+
+        return hisList;
+    }
+
 }

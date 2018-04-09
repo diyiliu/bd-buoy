@@ -236,10 +236,10 @@
                             alert("此时间段没有数据");
                         }else{
 
-                            var startLong = list[0].gps_longitude;
-                            var startLat = list[0].gps_latitude;
-                            var endLong = list[list.length-1].gps_longitude;
-                            var endLat = list[list.length-1].gps_latitude;
+                            var startLong = list[0].gpsLng;
+                            var startLat = list[0].gpsLat;
+                            var endLong = list[list.length-1].gpsLat;
+                            var endLat = list[list.length-1].gpsLat;
 
 
                             var mapb = new AMap.Map("video-history", {
@@ -255,7 +255,7 @@
                             var marker = new AMap.Marker({
                                 map: mapb,
                                 position: [startLong, startLat],
-                                icon: "images/ff1.png", //marker图标，直接传递地址url
+                                icon: "/static/image/ff1.png", //marker图标，直接传递地址url
                                 offset: new AMap.Pixel(-13, -6), //相对于基点的位置
                                 autoRotation: true//根据线点自动转换方向
                             });
@@ -265,17 +265,17 @@
                             var lngX = startLong, latY = startLat;
                             lineArr.push([lngX, latY]);
                             for (var i = 1; i < list.length; i++) {
-                                lngX = list[i].gps_longitude;
+                                lngX = list[i].gpsLng;
 
                                 for (var a=1;lngX==0.015498;a++) {
-                                    lngX = list[i-a].gps_longitude;
+                                    lngX = list[i-a].gpsLng;
 
                                 }
 
-                                latY = list[i].gps_latitude;
+                                latY = list[i].gpsLat;
 
                                 for (var b=1;latY==0.002728;b++) {
-                                    latY = list[i-b].gps_latitude;
+                                    latY = list[i-b].gpsLat;
                                 }
 
                                 lineArr.push([lngX, latY,]);
@@ -313,8 +313,8 @@
 
                             marker.on('moving',function(e){
                                 var len = e.passedPath.length;
-                                var time = list[len-1].gps_time;
-                                var speed2 = list[len-1].sea_depth;
+                                var time = list[len-1].gpsTime;
+                                var speed2 = list[len-1].temp;
                                 if (speed2==6553.5) {
                                     speed2 = "无效数据";
                                 }
