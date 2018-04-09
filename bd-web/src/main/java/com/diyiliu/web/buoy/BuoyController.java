@@ -8,10 +8,7 @@ import com.diyiliu.web.buoy.facade.BuoyCurInfoJpa;
 import com.diyiliu.web.buoy.facade.BuoyHisInfoJpa;
 import com.diyiliu.web.buoy.facade.BuoyJpa;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -82,7 +79,6 @@ public class BuoyController {
         return list;
     }
 
-
     @PostMapping("/queryHisInfo")
     public List queryHisInfo(@RequestParam(required = false) String fbmc, @RequestParam String time, @RequestParam int page) {
         String starTime = time.substring(0, 19);
@@ -91,7 +87,7 @@ public class BuoyController {
         Date eTime = DateUtil.stringToDate(endTime);
 
         Pageable pageable = PageRequest.of(page, PAGE_SIZE, Sort.by(Sort.Direction.DESC, "gpsTime"));
-        Page<BuoyHisInfo> buoyHisInfoPage = buoyHisInfoJpa.findAll(
+        /*Page<BuoyHisInfo> buoyHisInfoPage = buoyHisInfoJpa.findAll(
                 (Root<BuoyHisInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
                     Path<Date> gpsTimeExp = root.get("gpsTime");
                     Buoy buoy = null;
@@ -99,10 +95,7 @@ public class BuoyController {
                         buoy = buoyJpa.findBuoyByName(fbmc);
                     }
 
-                    /*
-                    query.select(cb.countDistinct(gpsTimeExp));
-                    query.select(cb.countDistinct(gpsTimeExp));
-                    */
+                    //query.groupBy(gpsTimeExp, root.get("buoyId"));
 
                     if (buoy == null) {
 
@@ -112,19 +105,28 @@ public class BuoyController {
 
                         return cb.and(new Predicate[]{cb.between(gpsTimeExp, sTime, eTime), cb.equal(buoyIdExp, buoy.getId())});
                     }
-                }, pageable);
+                }, pageable);*/
+
+        Long buoyId = null;
+        if (StringUtils.isNotBlank(fbmc)) {
+            Buoy buoy = buoyJpa.findBuoyByName(fbmc);
+            if (buoy != null) {
+                buoyId = buoy.getId();
+            }
+        }
+
+        Page<BuoyHisInfo> buoyHisInfoPage = buoyHisInfoJpa.findAllByGpsTime(sTime, eTime, pageable);
 
         List list = new ArrayList();
         list.add(buoyHisInfoPage.getTotalElements());
         list.add(buoyHisInfoPage.getContent());
-
 
         return list;
     }
 
 
     @PostMapping("/hisTrace")
-    public List hisTrace(@RequestParam String cph, @RequestParam String startime,  @RequestParam String endtime){
+    public List hisTrace(@RequestParam String cph, @RequestParam String startime, @RequestParam String endtime) {
         Buoy buoy = buoyJpa.findBuoyByName(cph);
 
 

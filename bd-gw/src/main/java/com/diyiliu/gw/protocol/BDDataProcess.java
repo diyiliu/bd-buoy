@@ -186,8 +186,6 @@ public class BDDataProcess implements IDataProcess {
             log.error("插入原始数据失败!");
         }
 
-
-
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date(0));
         calendar.set(Calendar.YEAR, year);
