@@ -1,17 +1,21 @@
 package com.diyiliu.web.buoy;
 
-import com.diyiliu.plugin.cache.ICache;
 import com.diyiliu.plugin.util.DateUtil;
-import com.diyiliu.web.buoy.dto.*;
-import com.diyiliu.web.buoy.facade.BuoyHisInfoJpa;
+import com.diyiliu.web.buoy.dto.Buoy;
+import com.diyiliu.web.buoy.dto.BuoyHisInfo;
+import com.diyiliu.web.buoy.dto.BuoyInfo;
 import com.diyiliu.web.buoy.facade.BuoyCurInfoJpa;
+import com.diyiliu.web.buoy.facade.BuoyHisInfoJpa;
 import com.diyiliu.web.buoy.facade.BuoyJpa;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.persistence.criteria.*;
@@ -95,12 +99,17 @@ public class BuoyController {
                         buoy = buoyJpa.findBuoyByName(fbmc);
                     }
 
+                    /*
+                    query.select(cb.countDistinct(gpsTimeExp));
+                    query.select(cb.countDistinct(gpsTimeExp));
+                    */
+
                     if (buoy == null) {
 
-                        return cb.and(new Predicate[]{cb.between(gpsTimeExp, sTime, eTime)});
+                        return cb.and(new Predicate[]{cb.greaterThan(gpsTimeExp, sTime), cb.lessThan(gpsTimeExp, eTime)});
                     } else {
-
                         Path<String> buoyIdExp = root.get("buoyId");
+
                         return cb.and(new Predicate[]{cb.between(gpsTimeExp, sTime, eTime), cb.equal(buoyIdExp, buoy.getId())});
                     }
                 }, pageable);
@@ -108,6 +117,7 @@ public class BuoyController {
         List list = new ArrayList();
         list.add(buoyHisInfoPage.getTotalElements());
         list.add(buoyHisInfoPage.getContent());
+
 
         return list;
     }

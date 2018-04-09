@@ -1,6 +1,7 @@
 package com.diyiliu.gw.protocol;
 
 import com.diyiliu.gw.support.bean.DeviceInfo;
+import com.diyiliu.gw.support.bean.OriginalInfo;
 import com.diyiliu.gw.support.client.ForwardWs;
 import com.diyiliu.plugin.cache.ICache;
 import com.diyiliu.plugin.model.Header;
@@ -34,6 +35,11 @@ public class BDDataProcess implements IDataProcess {
 
     @Resource
     private ICache deviceCacheProvider;
+
+
+    @Resource
+    private ICache originalCacheProvider;
+
 
     @Resource
     private ForwardWs forwardWs;
@@ -144,15 +150,19 @@ public class BDDataProcess implements IDataProcess {
         double height = h;
         if (h != 0xFFFF & h != 0xFFFE) {
             height = CommonUtil.keepDecimal(h * 0.1 - 1000, 1);
+        }else {
+            height *= 0.1;
         }
 
         // 海水温度 (有符号整数)
-        int tp =  buf.getUnsignedShort(buf.readerIndex());
+        int tp = buf.getUnsignedShort(buf.readerIndex());
         double temp = tp;
 
         int t = buf.readShort();
         if (tp != 0xFFFF & tp != 0xFFFE) {
             temp = CommonUtil.keepDecimal(t * 0.01, 2) - 100;
+        }else {
+            temp *= 0.01;
         }
 
         // 电池电压
@@ -176,6 +186,8 @@ public class BDDataProcess implements IDataProcess {
             log.error("插入原始数据失败!");
         }
 
+
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date(0));
         calendar.set(Calendar.YEAR, year);
@@ -184,13 +196,26 @@ public class BDDataProcess implements IDataProcess {
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
         calendar.set(Calendar.SECOND, second);
+        Date gpsTime = calendar.getTime();
 
-        param = new Object[]{id, new Date(), calendar.getTime(),
+        // 过滤重复数据
+        if (originalCacheProvider.containsKey(sim)) {
+            OriginalInfo originalInfo = (OriginalInfo) originalCacheProvider.get(sim);
+
+            if (originalInfo.getGpsTime() == gpsTime.getTime()) {
+
+                log.info("过滤重复[{}, {}]数据[{}]", sim, DateUtil.dateToString(gpsTime), CommonUtil.bytesToStr(bytes));
+                return;
+            }
+        }
+        OriginalInfo originalInfo = new OriginalInfo(sim, gpsTime.getTime(), bytes, new Date());
+        originalCacheProvider.put(sim, originalInfo);
+
+
+        param = new Object[]{id, new Date(), gpsTime,
                 bdLocation, bdSignal, bdLng, bdLat,
                 gpsLocation, gpsSignal, enGpsLng, enGpsLat,
                 speed, height, temp, voltage};
-
-
         String sqlItem = "(static_id, fwq_time, gps_time, " +
                 "bd_positioning, bd_signal_intensity, bd_longitude, bd_latitude, " +
                 "gps_positioning, gps_signal_intensity, gps_longitude, gps_latitude, " +

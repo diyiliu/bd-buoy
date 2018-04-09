@@ -46,6 +46,7 @@ var allpage;
 	
 	function cxfb(user,fbmc,time)
 	{
+        $('#tableL').DataTable().clear();
 		$.ajax({
 				type : "post",
 				url : "buoy/queryHisInfo",
@@ -68,10 +69,7 @@ var allpage;
 					} else if(fbCurrents.length==0){
 						alert("此时间段没有数据");
 					}else{
-					
-					//$(".clztlb table").children("tbody").empty();
-					 var t = $('#tableL').DataTable();
-					        t.clear();
+
 					
 					for ( var i = 0; i < fbCurrents.length; i++) {
 
@@ -148,9 +146,7 @@ var allpage;
                         } else{
                             cjsj = fbsj.gpsTime;
                         }
-						
-						
-					
+
 						
 						//分页显示
 						$("#allcount").text(allcount);
@@ -158,8 +154,7 @@ var allpage;
 						$("#currentpage").text(( parseInt(page)+1)+"/"+Math.ceil(allcount/15));
 						allpage=Math.ceil(allcount/15);
 
-
-                        t.row.add( [
+                        $('#tableL').DataTable().row.add( [
 
                             '<input type="checkbox" class="minimal" value='+fbsj.buoyId+'>',
                             '<td >' + fbmc1 + '</td>',
@@ -202,6 +197,8 @@ var allpage;
 			
 			var user=$("input[name='username']").val();
 			var time=$("#hidetime").val();
+
+            $('#tableL').DataTable().clear();
 			$.ajax({
 					type : "post",
 					url : "buoy/queryHisInfo",
@@ -214,18 +211,10 @@ var allpage;
 					dataType : "json",
 					async : true,
 					success:function(l){
-						
 						var allcount=l[0];
 						var fbCurrents=l[1];
-						
-						
-						//$(".clztlb table").children("tbody").empty();
 
-                        var t = $('#tableL').DataTable();
-                        t.clear();
-						
 						for ( var i = 0; i < fbCurrents.length; i++) {
-
 							var fbsj = fbCurrents[i];
 							
 							var fbmc1;
@@ -309,10 +298,7 @@ var allpage;
 							$("#currentpage").text(( parseInt(page)+1)+"/"+Math.ceil(allcount/15));
 							allpage=Math.ceil(allcount/15);
 
-
-
-                            t.row.add( [
-
+                            $('#tableL').DataTable().row.add( [
                                 '<input type="checkbox" class="minimal" value='+fbsj.buoyId+'>',
                                 '<td >' + fbmc1 + '</td>',
                                 '<td >' + fbbh + '</td>',
@@ -324,17 +310,13 @@ var allpage;
                                 '<td >' + dy +'</td>',
                                 '<td >' + cjsj + '</td>'
                             ]).draw();
-
-
                         }
+
 						$("#fbuser").val(user);
 						$(".fbtime").val($("#hidetime").val());
 						$("#hidetime").val($(".fbtime").val());
 					}
-			
 				});
-				
-		   
     	}
     	
     	

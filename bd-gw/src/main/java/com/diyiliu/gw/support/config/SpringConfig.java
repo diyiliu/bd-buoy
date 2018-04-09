@@ -52,4 +52,16 @@ public class SpringConfig {
 
         return new RamCacheProvider();
     }
+
+
+    /**
+     * 原始指令缓存
+     *
+     * @return
+     */
+    @Bean
+    public ICache originalCacheProvider() {
+
+        return new RamCacheProvider();
+    }
 }
