@@ -25,7 +25,7 @@ public interface BuoyHisInfoJpa extends JpaRepository<BuoyHisInfo, Long>, JpaSpe
             " group by t.gpsTime, t.buoyId order by  t.gpsTime desc")
     Page<BuoyHisInfo> findAllByGpsTime(@Param("sTime") Date sTime, @Param("eTime") Date eTime, Pageable pageable);
 
-    @Query("select t from BuoyHisInfo t where t.gpsTime > ?#{[0]} and t.gpsTime < ?#{[1]} " +
-            " and  t.buoyId = ?#{[2]} group by t.gpsTime, t.buoyId order by  t.gpsTime desc")
+    @Query("select t from BuoyHisInfo t where t.gpsTime > ?1 and t.gpsTime < ?2 " +
+            " and  t.buoyId = ?3 group by t.gpsTime, t.buoyId order by  t.gpsTime desc")
     Page<BuoyHisInfo> findAllByGpsTimeAndBuoyId(Date sTime, Date eTime, Long buoyId, Pageable pageable);
 }
