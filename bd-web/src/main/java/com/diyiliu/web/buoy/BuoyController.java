@@ -8,14 +8,16 @@ import com.diyiliu.web.buoy.facade.BuoyCurInfoJpa;
 import com.diyiliu.web.buoy.facade.BuoyHisInfoJpa;
 import com.diyiliu.web.buoy.facade.BuoyJpa;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.data.domain.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -87,7 +89,9 @@ public class BuoyController {
         Date eTime = DateUtil.stringToDate(endTime);
 
         Pageable pageable = PageRequest.of(page, PAGE_SIZE, Sort.by(Sort.Direction.DESC, "gpsTime"));
-        /*Page<BuoyHisInfo> buoyHisInfoPage = buoyHisInfoJpa.findAll(
+/*
+        条件分页查询 group by 无法获取正确总数
+        Page<BuoyHisInfo> buoyHisInfoPage = buoyHisInfoJpa.findAll(
                 (Root<BuoyHisInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
                     Path<Date> gpsTimeExp = root.get("gpsTime");
                     Buoy buoy = null;
@@ -105,17 +109,21 @@ public class BuoyController {
 
                         return cb.and(new Predicate[]{cb.between(gpsTimeExp, sTime, eTime), cb.equal(buoyIdExp, buoy.getId())});
                     }
-                }, pageable);*/
+                }, pageable);
 
-        Long buoyId = null;
+*/
+
+        Page<BuoyHisInfo> buoyHisInfoPage;
+        Buoy buoy = null;
         if (StringUtils.isNotBlank(fbmc)) {
-            Buoy buoy = buoyJpa.findBuoyByName(fbmc);
-            if (buoy != null) {
-                buoyId = buoy.getId();
-            }
+            buoy = buoyJpa.findBuoyByName(fbmc);
         }
 
-        Page<BuoyHisInfo> buoyHisInfoPage = buoyHisInfoJpa.findAllByGpsTime(sTime, eTime, pageable);
+        if (buoy == null) {
+            buoyHisInfoPage = buoyHisInfoJpa.findAllByGpsTime(sTime, eTime, pageable);
+        } else {
+            buoyHisInfoPage = buoyHisInfoJpa.findAllByGpsTimeAndBuoyId(sTime, eTime, buoy.getId(), pageable);
+        }
 
         List list = new ArrayList();
         list.add(buoyHisInfoPage.getTotalElements());
