@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-buoy.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-buoy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-buoy_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-buoy_main.iml" group="bd-buoy" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-buoy_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-buoy_test.iml" group="bd-buoy" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw.iml" group="bd-gw" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_main.iml" group="bd-gw" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_test.iml" group="bd-gw" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-web.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-web.iml" group="bd-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-web/bd-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-web/bd-web_main.iml" group="bd-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-web/bd-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-web/bd-web_test.iml" group="bd-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyl-plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/dyl-plugin.iml" group="dyl-plugin" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_main.iml" filepath="$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_main.iml" group="dyl-plugin" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_test.iml" filepath="$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_test.iml" group="dyl-plugin" />
+    </modules>
+  </component>
+</project>

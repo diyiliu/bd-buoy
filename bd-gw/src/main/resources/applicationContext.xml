@@ -9,7 +9,7 @@
 
     <!-- 开启注解扫描 -->
     <context:component-scan base-package="com.diyiliu.*"/>
-    <context:property-placeholder location="classpath*:*.properties"/>
+    <context:property-placeholder location="classpath*:*.properties" file-encoding="UTF-8"/>
 
     <!-- 数据源 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">

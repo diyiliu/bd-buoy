@@ -1,7 +1,6 @@
 package com.diyiliu.web.account.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +13,7 @@ import javax.persistence.Table;
  * Update: 2018-04-05 23:55
  */
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "login")
 public class Account {

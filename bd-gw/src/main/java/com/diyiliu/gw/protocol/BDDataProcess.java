@@ -36,10 +36,8 @@ public class BDDataProcess implements IDataProcess {
     @Resource
     private ICache deviceCacheProvider;
 
-
     @Resource
     private ICache originalCacheProvider;
-
 
     @Resource
     private ForwardWs forwardWs;

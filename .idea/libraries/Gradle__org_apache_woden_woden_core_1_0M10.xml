@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.woden:woden-core:1.0M10">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.woden/woden-core/1.0M10/ffed89bc39eb7fce6b74765b3417c6844d8003a2/woden-core-1.0M10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.woden/woden-core/1.0M10/f2590a8402b5305371f3aa8ff70f73f4484df17b/woden-core-1.0M10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

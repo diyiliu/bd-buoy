@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.axis2:axis2-codegen:1.7.7">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.axis2/axis2-codegen/1.7.7/58a874746bdb58653f94f046865a6bfbc8b82811/axis2-codegen-1.7.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.axis2/axis2-codegen/1.7.7/ef8947421a0514d564cabf873c833d65ce195a62/axis2-codegen-1.7.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
