@@ -3,9 +3,11 @@ package com.diyiliu.gw.support.task;
 import com.diyiliu.gw.support.bean.DeviceInfo;
 import com.diyiliu.gw.support.client.ForwardWs;
 import com.diyiliu.gw.support.dao.DeviceInfoDao;
+import com.diyiliu.plugin.model.Point;
 import com.diyiliu.plugin.task.ITask;
 import com.diyiliu.plugin.util.CommonUtil;
 import com.diyiliu.plugin.util.DateUtil;
+import com.diyiliu.plugin.util.GpsCorrectUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.FileCopyUtils;
@@ -108,6 +110,14 @@ public class DummyInfoTask implements ITask {
         if ('W' == lngDir) {
             lng = -lng;
         }
+
+        // 经纬度偏移
+        Point point = GpsCorrectUtil.transform(lat, lng);
+        if (point != null) {
+            lat = CommonUtil.keepDecimal(point.getLat(), 6);
+            lng = CommonUtil.keepDecimal(point.getLng(), 6);
+        }
+
 
         double temp = Integer.parseInt(content.substring(34, 36), 16) * 2 / 10 - 10;
         double voltage = Integer.parseInt(content.substring(36, 38), 16) / 10;

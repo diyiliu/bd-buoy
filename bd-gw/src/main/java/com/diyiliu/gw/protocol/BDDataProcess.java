@@ -132,13 +132,13 @@ public class BDDataProcess implements IDataProcess {
         // GPS纬度
         double gpsLat = buf.readUnsignedInt() * 0.000001;
 
-        double enGpsLng = gpsLng;
         double enGpsLat = gpsLat;
+        double enGpsLng = gpsLng;
         // 经纬度偏移
         Point point = GpsCorrectUtil.transform(gpsLat, gpsLng);
         if (point != null) {
-            enGpsLng = CommonUtil.keepDecimal(point.getLng(), 6);
             enGpsLat = CommonUtil.keepDecimal(point.getLat(), 6);
+            enGpsLng = CommonUtil.keepDecimal(point.getLng(), 6);
         }
 
         // 海面速率
