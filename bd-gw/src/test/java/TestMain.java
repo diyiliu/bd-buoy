@@ -1,12 +1,12 @@
-import com.diyiliu.plugin.model.Point;
 import com.diyiliu.plugin.util.CommonUtil;
-import com.diyiliu.plugin.util.GpsCorrectUtil;
 import org.junit.Test;
 import org.springframework.util.FileCopyUtils;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.nio.file.Paths;
 
 /**
  * Description: TestMain
@@ -24,10 +24,18 @@ public class TestMain {
 
         byte[] bytes = FileCopyUtils.copyToByteArray(file);
 
+
+        File bakFile = new File("mails/1730/");
+        if (!bakFile.exists()){
+
+            file.mkdirs();
+        }
+
+        File f = new File(bakFile.getAbsolutePath() + file.getName());
+        FileCopyUtils.copy(bytes, new FileOutputStream(f));
+
         String content = CommonUtil.bytesToStr(bytes);
-
         System.out.println(content);
-
         String year = 20 + content.substring(0, 2);
         String month = content.substring(2, 4);
         String day = content.substring(4, 6);
@@ -42,7 +50,7 @@ public class TestMain {
         double lat = dm2Double(content.substring(12, 14), content.substring(14, 20));
         char latDir = (char) Integer.parseInt(content.substring(20, 22), 16);
 
-        double lng = dm2Double(content.substring(22, 26), content.substring(24, 32));
+        double lng = dm2Double(content.substring(22, 26), content.substring(26, 32));
         char lngDir = (char) Integer.parseInt(content.substring(32, 34), 16);
 
         double temp = Integer.parseInt(content.substring(34, 36), 16) * 2 / 10 - 10;
@@ -55,8 +63,21 @@ public class TestMain {
 
     private double dm2Double(String d, String m) {
 
+
         BigDecimal decimal = new BigDecimal(d).add(new BigDecimal(m).divide(new BigDecimal(600000), 6, RoundingMode.HALF_UP));
         decimal.setScale(6, RoundingMode.HALF_UP);
         return decimal.doubleValue();
+    }
+
+    @Test
+    public void test1() throws Exception{
+        File f = new File("mails/1730");
+
+/*        if (!f.exists()){
+
+            f.mkdirs();
+        }*/
+
+        System.out.println(File.separator);
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.FileCopyUtils;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -27,6 +28,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class DummyInfoTask implements ITask {
+    private final static String _BAK_MAIL_PATH = "_bak/mails/";
 
     private DeviceInfoDao deviceDao;
 
@@ -43,25 +45,34 @@ public class DummyInfoTask implements ITask {
         // 假人数据
         Map<String, DeviceInfo> dummyMap = list.stream().filter(d -> d.getUser() == 3).collect(Collectors.toMap(DeviceInfo::getSim, d -> d));
         File file = new File(mailPath);
-        if (file.exists() && file.listFiles().length > 0){
+        if (file.exists() && file.listFiles().length > 0) {
 
             File[] files = file.listFiles();
-            for (File f: files){
+            for (File f : files) {
                 String name = f.getName();
-                if (!dummyMap.containsKey(name)){
+                if (!dummyMap.containsKey(name)) {
                     continue;
                 }
 
+                File bakDir = new File(_BAK_MAIL_PATH + name);
+                if (!bakDir.exists()) {
+                    bakDir.mkdirs();
+                }
+
                 DeviceInfo deviceInfo = dummyMap.get(name);
-                if (f.isDirectory()){
+                if (f.isDirectory()) {
                     File[] dataFile = f.listFiles();
                     try {
-                        for (File data: dataFile){
-                            if (data.isFile()){
-                                if (data.getName().endsWith(".sbd")){
-                                    byte[] bytes = FileCopyUtils.copyToByteArray(data);
+                        for (File data : dataFile) {
+                            if (data.isFile()) {
+                                byte[] bytes = FileCopyUtils.copyToByteArray(data);
+                                if (data.getName().endsWith(".sbd")) {
                                     dealMail(deviceInfo, bytes);
                                 }
+                                // 备份文件
+                                File bakFile = new File(bakDir.getAbsolutePath() + File.separator + data.getName());
+                                FileCopyUtils.copy(bytes, new FileOutputStream(bakFile));
+                                // 删除文件
                                 data.delete();
                             }
                         }
@@ -73,7 +84,7 @@ public class DummyInfoTask implements ITask {
         }
     }
 
-    private void dealMail(DeviceInfo deviceInfo, byte[] bytes){
+    private void dealMail(DeviceInfo deviceInfo, byte[] bytes) {
         String content = CommonUtil.bytesToStr(bytes);
 
         String year = 20 + content.substring(0, 2);
@@ -88,13 +99,13 @@ public class DummyInfoTask implements ITask {
 
         double lat = dm2Double(content.substring(12, 14), content.substring(14, 20));
         char latDir = (char) Integer.parseInt(content.substring(20, 22), 16);
-        if ('S' == latDir){
+        if ('S' == latDir) {
             lat = -lat;
         }
 
-        double lng = dm2Double(content.substring(22, 26), content.substring(24, 32));
+        double lng = dm2Double(content.substring(22, 26), content.substring(26, 32));
         char lngDir = (char) Integer.parseInt(content.substring(32, 34), 16);
-        if ('W' == lngDir){
+        if ('W' == lngDir) {
             lng = -lng;
         }
 
@@ -155,14 +166,14 @@ public class DummyInfoTask implements ITask {
     }
 
     /**
-     *  度分 转 double
+     * 度分 转 double
+     *
      * @param d
      * @param m
      * @return
      */
     private double dm2Double(String d, String m) {
-        BigDecimal decimal = new BigDecimal(d).add(new BigDecimal(m).divide(new BigDecimal(600000), 10, RoundingMode.HALF_UP));
-        decimal.setScale(6, RoundingMode.HALF_UP);
+        BigDecimal decimal = new BigDecimal(d).add(new BigDecimal(m).divide(new BigDecimal(600000), 6, RoundingMode.HALF_UP));
 
         return decimal.doubleValue();
     }
