@@ -17,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -99,6 +100,14 @@ public class DummyInfoTask implements ITask {
         String gpsTime = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
         Date gpsDate = DateUtil.stringToDate(gpsTime);
 
+        // 时间修正 UTC0 -> UTC8
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(gpsDate);
+        calendar.add(Calendar.HOUR_OF_DAY, 8);
+
+        gpsDate = calendar.getTime();
+        gpsTime = DateUtil.dateToString(gpsDate);
+
         double lat = dm2Double(content.substring(12, 14), content.substring(14, 20));
         char latDir = (char) Integer.parseInt(content.substring(20, 22), 16);
         if ('S' == latDir) {
@@ -119,8 +128,8 @@ public class DummyInfoTask implements ITask {
         }
 
 
-        double temp = Integer.parseInt(content.substring(34, 36), 16) * 2 / 10 - 10;
-        double voltage = Integer.parseInt(content.substring(36, 38), 16) / 10;
+        double temp = Integer.parseInt(content.substring(34, 36), 16) * 2.0 / 10.0 - 10;
+        double voltage = Integer.parseInt(content.substring(36, 38), 16) / 10.0;
         int interval = Integer.parseInt(content.substring(38), 16);
 
         long id = deviceInfo.getId();

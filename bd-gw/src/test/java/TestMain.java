@@ -20,7 +20,7 @@ public class TestMain {
     @Test
     public void test() throws Exception {
 
-        File file = new File("F:\\临时\\北斗\\铱星数据\\5140_000293__20180314161143.sbd");
+        File file = new File("F:\\临时\\北斗\\IridiumMail\\mails\\1730\\1730_000658__20180521140302.sbd");
 
         byte[] bytes = FileCopyUtils.copyToByteArray(file);
 
@@ -53,8 +53,8 @@ public class TestMain {
         double lng = dm2Double(content.substring(22, 26), content.substring(26, 32));
         char lngDir = (char) Integer.parseInt(content.substring(32, 34), 16);
 
-        double temp = Integer.parseInt(content.substring(34, 36), 16) * 2 / 10 - 10;
-        double voltage = Integer.parseInt(content.substring(36, 38), 16) / 10;
+        double temp =  Integer.parseInt(content.substring(34, 36), 16) * 2.0 / 10.0 - 10;
+        double voltage = Integer.parseInt(content.substring(36, 38), 16) / 10.0;
         int interval = Integer.parseInt(content.substring(38), 16);
 
 
