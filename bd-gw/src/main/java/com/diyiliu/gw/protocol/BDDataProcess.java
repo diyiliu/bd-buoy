@@ -1,5 +1,6 @@
 package com.diyiliu.gw.protocol;
 
+import com.diyiliu.gw.support.bean.DataInfo;
 import com.diyiliu.gw.support.bean.DeviceInfo;
 import com.diyiliu.gw.support.bean.OriginalInfo;
 import com.diyiliu.gw.support.client.ForwardWs;
@@ -235,17 +236,29 @@ public class BDDataProcess implements IDataProcess {
             log.error("更新实时数据失败！");
         }
 
-        try {
-            // 转发 Webservice
-            String forwardStr = "PG" + sim + ";" + sim + ";" + enGpsLng + ";" + enGpsLat + ";"
-                    + speed + ";" + temp + ";" + DateUtil.dateToString(calendar.getTime()) + ";" + voltage + ";" + gpsLocation;
 
-            // 假人使用数字1，浮球使用数字3
-            String resp = forwardWs.send(new String[]{"data", "style"}, new String[]{forwardStr, "3"});
-            log.info("数据转发[{}], 响应结果[{}]", forwardStr, resp);
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error("数据转发失败[{}]!", e.getMessage());
-        }
+        DataInfo dataInfo = new DataInfo();
+        dataInfo.setSim(sim);
+        dataInfo.setGpsTime(gpsTime);
+
+        // 北斗
+        dataInfo.setBdLocation(bdLocation);
+        dataInfo.setBdSignal(bdSignal);
+        dataInfo.setBdLng(bdLng);
+        dataInfo.setBdLat(bdLat);
+
+        // gps
+        dataInfo.setGpsLocation(gpsLocation);
+        dataInfo.setGpsSignal(gpsSignal);
+        dataInfo.setGpsLng(enGpsLng);
+        dataInfo.setGpsLat(enGpsLat);
+
+        dataInfo.setSpeed(speed);
+        dataInfo.setHeight(height);
+        dataInfo.setTemp(temp);
+        dataInfo.setVoltage(voltage);
+
+        // 数据处理
+        forwardWs.dataProcess(dataInfo, 3);
     }
 }

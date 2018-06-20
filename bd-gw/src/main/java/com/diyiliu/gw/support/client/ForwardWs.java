@@ -1,7 +1,10 @@
 package com.diyiliu.gw.support.client;
 
+import com.diyiliu.gw.support.bean.DataInfo;
+import com.diyiliu.plugin.util.DateUtil;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -20,6 +23,7 @@ import java.io.StringWriter;
  * Update: 2018-04-04 16:42
  */
 
+@Slf4j
 @Getter
 @Setter
 public class ForwardWs {
@@ -27,7 +31,28 @@ public class ForwardWs {
     private String nameSpace;
     private String methodName;
 
-    public String send(String[] param, String[] value) throws Exception {
+    /**
+     * 数据转发
+     *
+     * @param dataInfo
+     * @param type
+     */
+    public void dataProcess(DataInfo dataInfo, int type){
+        try {
+            // 转发 Webservice
+            String forwardStr = "PG" + dataInfo.getSim() + ";" + dataInfo.getSim() + ";" + dataInfo.getGpsLng() + ";" + dataInfo.getGpsLat() + ";"
+                    + dataInfo.getSpeed() + ";" + dataInfo.getSpeed() + ";" + DateUtil.dateToString(dataInfo.getGpsTime()) + ";" + dataInfo.getVoltage() + ";" + dataInfo.getGpsLocation();
+
+            // 假人使用数字1，浮球使用数字3
+            String resp = send(new String[]{"data", "style"}, new String[]{forwardStr, String.valueOf(type)});
+            log.info("数据转发[{}], 响应结果[{}]", forwardStr, resp);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("数据转发失败[{}]!", e.getMessage());
+        }
+    }
+
+    private String send(String[] param, String[] value) throws Exception {
         EndpointReference targetEPR = new EndpointReference(url);
 
         OMFactory factory = OMAbstractFactory.getOMFactory();

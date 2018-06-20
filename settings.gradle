@@ -5,4 +5,5 @@ include 'bd-web'
 include 'cloud-server'
 include 'cloud-client'
 include 'bd-service'
+include 'bd-client'
 

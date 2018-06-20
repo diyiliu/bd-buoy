@@ -6,8 +6,10 @@ import com.diyiliu.gw.support.task.DeviceInfoTask;
 import com.diyiliu.gw.support.task.DummyInfoTask;
 import com.diyiliu.plugin.cache.ICache;
 import com.diyiliu.plugin.task.ITask;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -24,8 +26,8 @@ import javax.annotation.Resource;
 @EnableScheduling
 public class SpringQuartz {
 
-    @Value("${mail.path}")
-    private String mailPath;
+    @Resource
+    private Environment environment;
 
     @Resource
     private DeviceInfoDao deviceInfoDao;
@@ -58,7 +60,7 @@ public class SpringQuartz {
         task.setDeviceDao(deviceInfoDao);
         task.setJdbcTemplate(jdbcTemplate);
         task.setForwardWs(forwardWs);
-        task.setMailPath(mailPath);
+        task.setMailPath(environment.getProperty("mail.path"));
 
         task.execute();
     }

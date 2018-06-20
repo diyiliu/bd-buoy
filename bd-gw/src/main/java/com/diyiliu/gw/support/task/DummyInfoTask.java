@@ -1,5 +1,6 @@
 package com.diyiliu.gw.support.task;
 
+import com.diyiliu.gw.support.bean.DataInfo;
 import com.diyiliu.gw.support.bean.DeviceInfo;
 import com.diyiliu.gw.support.client.ForwardWs;
 import com.diyiliu.gw.support.dao.DeviceInfoDao;
@@ -169,19 +170,21 @@ public class DummyInfoTask implements ITask {
             log.error("更新假人实时数据失败！");
         }
 
-        try {
-            // 转发 Webservice
-            String forwardStr = "PG" + sim + ";" + sim + ";" + lng + ";" + lat + ";"
-                    + 0 + ";" + temp + ";" + gpsTime + ";" + voltage + ";" + 0;
 
-            // 假人使用数字1，浮球使用数字3
-            String resp = forwardWs.send(new String[]{"data", "style"}, new String[]{forwardStr, "1"});
-            log.info("数据转发[{}], 响应结果[{}]", forwardStr, resp);
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error("数据转发失败[{}]!", e.getMessage());
-        }
+        DataInfo dataInfo = new DataInfo();
+        dataInfo.setSim(sim);
+        dataInfo.setGpsTime(gpsDate);
 
+        // gps
+        dataInfo.setGpsLocation(0);
+        dataInfo.setGpsLng(lng);
+        dataInfo.setGpsLat(lat);
+
+        dataInfo.setSpeed(.0);
+        dataInfo.setTemp(temp);
+        dataInfo.setVoltage(voltage);
+
+        forwardWs.dataProcess(dataInfo, 1);
     }
 
     /**

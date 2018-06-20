@@ -7,6 +7,8 @@
     <bytecodeTargetLevel>
       <module name="bd-buoy_main" target="1.8" />
       <module name="bd-buoy_test" target="1.8" />
+      <module name="bd-client_main" target="1.8" />
+      <module name="bd-client_test" target="1.8" />
       <module name="bd-gw_main" target="1.8" />
       <module name="bd-gw_test" target="1.8" />
       <module name="bd-service_main" target="1.8" />

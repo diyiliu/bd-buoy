@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-buoy.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-buoy.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-buoy_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-buoy_main.iml" group="bd-buoy" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-buoy_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-buoy_test.iml" group="bd-buoy" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-client.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-client.iml" group="bd-client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-client/bd-client_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-client/bd-client_main.iml" group="bd-client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-client/bd-client_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-client/bd-client_test.iml" group="bd-client" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw.iml" group="bd-gw" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_main.iml" group="bd-gw" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_test.iml" group="bd-gw" />
