@@ -2,4 +2,7 @@ rootProject.name = 'bd-buoy'
 include 'dyl-plugin'
 include 'bd-gw'
 include 'bd-web'
+include 'cloud-server'
+include 'cloud-client'
+include 'bd-service'
 

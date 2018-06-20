@@ -9,8 +9,14 @@
       <module name="bd-buoy_test" target="1.8" />
       <module name="bd-gw_main" target="1.8" />
       <module name="bd-gw_test" target="1.8" />
+      <module name="bd-service_main" target="1.8" />
+      <module name="bd-service_test" target="1.8" />
       <module name="bd-web_main" target="1.8" />
       <module name="bd-web_test" target="1.8" />
+      <module name="cloud-client_main" target="1.8" />
+      <module name="cloud-client_test" target="1.8" />
+      <module name="cloud-server_main" target="1.8" />
+      <module name="cloud-server_test" target="1.8" />
       <module name="dyl-plugin_main" target="1.8" />
       <module name="dyl-plugin_test" target="1.8" />
     </bytecodeTargetLevel>

@@ -66,7 +66,7 @@ public class BDDataProcess implements IDataProcess {
                     parseData(content);
                     break;
                 case 0x07:
-                    log.debug("收到心跳数据...");
+                    log.info("收到心跳数据...");
                     break;
                 default:
                     log.warn("收到[{}]数据...", String.format("%x", cmd));

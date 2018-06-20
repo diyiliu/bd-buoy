@@ -1,4 +1,6 @@
 import com.diyiliu.plugin.util.CommonUtil;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import org.junit.Test;
 import org.springframework.util.FileCopyUtils;
 
@@ -79,5 +81,15 @@ public class TestMain {
         }*/
 
         System.out.println(File.separator);
+    }
+
+    @Test
+    public void test2() throws Exception{
+
+        ByteBuf buf = Unpooled.buffer(2);
+        buf.writeShort(2);
+        buf.writeBytes(new byte[0]);
+
+        System.out.println(buf.array());
     }
 }
