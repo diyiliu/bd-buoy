@@ -17,3 +17,7 @@ spring:
 # LOGGING
 logging:
   config: 'classpath:logback.xml'
+
+kafka:
+  broker-list: tdyl-171:9092,dyl-172:9092,dyl-173:9092
+  bd-topic: dyl-buoy

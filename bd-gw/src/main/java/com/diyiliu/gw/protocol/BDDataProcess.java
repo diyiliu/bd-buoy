@@ -253,10 +253,10 @@ public class BDDataProcess implements IDataProcess {
         dataInfo.setGpsLng(enGpsLng);
         dataInfo.setGpsLat(enGpsLat);
 
-        dataInfo.setSpeed(speed);
+        dataInfo.setSpeed(Double.valueOf(second));
         dataInfo.setHeight(height);
         dataInfo.setTemp(temp);
-        dataInfo.setVoltage(voltage);
+        dataInfo.setVoltage(Double.valueOf(voltage));
 
         // 数据处理
         forwardWs.dataProcess(dataInfo, 3);
