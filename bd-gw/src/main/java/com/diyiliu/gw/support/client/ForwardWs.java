@@ -44,8 +44,8 @@ public class ForwardWs {
                     + dataInfo.getSpeed() + ";" + dataInfo.getSpeed() + ";" + DateUtil.dateToString(dataInfo.getGpsTime()) + ";" + dataInfo.getVoltage() + ";" + dataInfo.getGpsLocation();
 
             // 假人使用数字1，浮球使用数字3
-            String resp = send(new String[]{"data", "style"}, new String[]{forwardStr, String.valueOf(type)});
-            log.info("数据转发[{}], 响应结果[{}]", forwardStr, resp);
+//            String resp = send(new String[]{"data", "style"}, new String[]{forwardStr, String.valueOf(type)});
+//            log.info("数据转发[{}], 响应结果[{}]", forwardStr, resp);
         } catch (Exception e) {
             e.printStackTrace();
             log.error("数据转发失败[{}]!", e.getMessage());

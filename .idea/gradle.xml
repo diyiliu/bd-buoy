@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/cloud-client" />
             <option value="$PROJECT_DIR$/cloud-server" />
             <option value="$PROJECT_DIR$/dyl-plugin" />
+            <option value="$PROJECT_DIR$/hb-import" />
           </set>
         </option>
       </GradleProjectSettings>

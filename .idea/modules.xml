@@ -26,6 +26,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyl-plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/dyl-plugin.iml" group="dyl-plugin" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_main.iml" filepath="$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_main.iml" group="dyl-plugin" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_test.iml" filepath="$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_test.iml" group="dyl-plugin" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hb-import.iml" filepath="$PROJECT_DIR$/.idea/modules/hb-import.iml" group="hb-import" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hb-import/hb-import_main.iml" filepath="$PROJECT_DIR$/.idea/modules/hb-import/hb-import_main.iml" group="hb-import" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hb-import/hb-import_test.iml" filepath="$PROJECT_DIR$/.idea/modules/hb-import/hb-import_test.iml" group="hb-import" />
     </modules>
   </component>
 </project>

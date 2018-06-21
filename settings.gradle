@@ -6,4 +6,5 @@ include 'cloud-server'
 include 'cloud-client'
 include 'bd-service'
 include 'bd-client'
+include 'hb-import'
 

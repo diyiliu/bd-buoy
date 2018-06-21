@@ -9,6 +9,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Description: DataProcessAspect
@@ -29,6 +31,15 @@ public class DataProcessAspect {
         Object[] args = joinPoint.getArgs();
 
         DataInfo dataInfo = (DataInfo) args[0];
-        kafkaClient.send(dataInfo.getSim(), JacksonUtil.toJson(dataInfo));
+        String type = String.valueOf(args[1]);
+
+        Map map = new HashMap();
+        map.put("id", dataInfo.getSim());
+        map.put("timestamp", System.currentTimeMillis());
+        map.put("data", JacksonUtil.toJson(dataInfo));
+        map.put("type", type);
+
+        // 写入kafka
+        kafkaClient.send(dataInfo.getSim(), JacksonUtil.toJson(map));
     }
 }

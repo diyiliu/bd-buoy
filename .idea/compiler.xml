@@ -21,6 +21,8 @@
       <module name="cloud-server_test" target="1.8" />
       <module name="dyl-plugin_main" target="1.8" />
       <module name="dyl-plugin_test" target="1.8" />
+      <module name="hb-import_main" target="1.8" />
+      <module name="hb-import_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

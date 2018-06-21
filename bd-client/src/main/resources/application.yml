@@ -20,4 +20,4 @@ logging:
 
 kafka:
   broker-list: tdyl-171:9092,dyl-172:9092,dyl-173:9092
-  bd-topic: dyl-buoy
+  bd-topic: bd_buoy
