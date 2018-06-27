@@ -25,6 +25,7 @@ dependencies {
 }
 
 // 打包jar 主函数
+/*
 jar {
     archiveName = 'bd-gw.jar'
 
@@ -41,6 +42,7 @@ jar {
         }
     }
 }
+*/
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
