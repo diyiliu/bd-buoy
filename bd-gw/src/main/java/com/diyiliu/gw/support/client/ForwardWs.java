@@ -37,20 +37,21 @@ public class ForwardWs {
      * @param dataInfo
      * @param type
      */
-    public void dataProcess(DataInfo dataInfo, int type){
+    public void dataProcess(DataInfo dataInfo, int type) {
         try {
             // 转发 Webservice
             String forwardStr = "PG" + dataInfo.getSim() + ";" + dataInfo.getSim() + ";" + dataInfo.getGpsLng() + ";" + dataInfo.getGpsLat() + ";"
                     + dataInfo.getSpeed() + ";" + dataInfo.getSpeed() + ";" + DateUtil.dateToString(dataInfo.getGpsTime()) + ";" + dataInfo.getVoltage() + ";" + dataInfo.getGpsLocation();
 
             // 假人使用数字1，浮球使用数字3
-//            String resp = send(new String[]{"data", "style"}, new String[]{forwardStr, String.valueOf(type)});
-//            log.info("数据转发[{}], 响应结果[{}]", forwardStr, resp);
+            String resp = send(new String[]{"data", "style"}, new String[]{forwardStr, String.valueOf(type)});
+            log.info("数据转发[{}], 响应结果[{}]", forwardStr, resp);
         } catch (Exception e) {
             e.printStackTrace();
             log.error("数据转发失败[{}]!", e.getMessage());
         }
     }
+
 
     private String send(String[] param, String[] value) throws Exception {
         EndpointReference targetEPR = new EndpointReference(url);
@@ -60,10 +61,10 @@ public class ForwardWs {
 
         OMElement method = factory.createOMElement(methodName, omNs);
 
-        if (param != null && value != null){
-            for (int i = 0; i < param.length; i++){
+        if (param != null && value != null) {
+            for (int i = 0; i < param.length; i++) {
                 String p = param[i];
-                String v= value[i];
+                String v = value[i];
 
                 OMElement omElement = factory.createOMElement(p, omNs);
                 omElement.addChild(factory.createOMText(omElement, v));

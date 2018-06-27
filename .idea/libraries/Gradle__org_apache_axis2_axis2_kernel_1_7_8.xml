@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.axis2:axis2-kernel:1.7.8">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.axis2/axis2-kernel/1.7.8/c475d05b0431c45d17eb01e25f635142cade4a1d/axis2-kernel-1.7.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.axis2/axis2-kernel/1.7.8/56831b8f825c0b76db725206ea761311ee6fce71/axis2-kernel-1.7.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

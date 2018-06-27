@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.webjars.npm:bootstrap-timepicker:0.5.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.webjars.npm/bootstrap-timepicker/0.5.2/3b1b5191461824fc176bdd6917c9ef30c5e20d2c/bootstrap-timepicker-0.5.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.webjars.npm/bootstrap-timepicker/0.5.2/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33/bootstrap-timepicker-0.5.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

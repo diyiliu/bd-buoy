@@ -11,18 +11,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw.iml" group="bd-gw" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_main.iml" group="bd-gw" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_test.iml" group="bd-gw" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-service.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-service.iml" group="bd-service" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-service/bd-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-service/bd-service_main.iml" group="bd-service" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-service/bd-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-service/bd-service_test.iml" group="bd-service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-web.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-web.iml" group="bd-web" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-web/bd-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-web/bd-web_main.iml" group="bd-web" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-web/bd-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-web/bd-web_test.iml" group="bd-web" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-client.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-client.iml" group="cloud-client" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-client/cloud-client_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-client/cloud-client_main.iml" group="cloud-client" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-client/cloud-client_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-client/cloud-client_test.iml" group="cloud-client" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-server.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-server.iml" group="cloud-server" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-server/cloud-server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-server/cloud-server_main.iml" group="cloud-server" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloud-server/cloud-server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cloud-server/cloud-server_test.iml" group="cloud-server" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyl-plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/dyl-plugin.iml" group="dyl-plugin" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_main.iml" filepath="$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_main.iml" group="dyl-plugin" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_test.iml" filepath="$PROJECT_DIR$/.idea/modules/dyl-plugin/dyl-plugin_test.iml" group="dyl-plugin" />

@@ -26,7 +26,7 @@ public class DataProcessAspect {
     @Resource
     private KafkaClient kafkaClient;
 
-    @After("execution(* com.diyiliu.gw.support.client.ForwardWs.dataProcess(..))")
+   @After("execution(* com.diyiliu.gw.support.client.ForwardWs.dataProcess(..))")
     public void doAfter(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
 
@@ -40,6 +40,6 @@ public class DataProcessAspect {
         map.put("type", type);
 
         // 写入kafka
-        kafkaClient.send(dataInfo.getSim(), JacksonUtil.toJson(map));
+         kafkaClient.send(dataInfo.getSim(), JacksonUtil.toJson(map));
     }
 }

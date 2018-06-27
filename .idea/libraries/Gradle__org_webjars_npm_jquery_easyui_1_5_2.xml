@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.webjars.npm:jquery-easyui:1.5.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.webjars.npm/jquery-easyui/1.5.2/4aab65e2353d88a069bb42da2218820ba3253a3d/jquery-easyui-1.5.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.webjars.npm/jquery-easyui/1.5.2/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33/jquery-easyui-1.5.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

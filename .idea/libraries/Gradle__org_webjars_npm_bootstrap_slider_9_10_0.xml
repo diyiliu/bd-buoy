@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.webjars.npm:bootstrap-slider:9.10.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.webjars.npm/bootstrap-slider/9.10.0/3b554d84892cd5a3bf1d01249a793eeab2afa03a/bootstrap-slider-9.10.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.webjars.npm/bootstrap-slider/9.10.0/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33/bootstrap-slider-9.10.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
