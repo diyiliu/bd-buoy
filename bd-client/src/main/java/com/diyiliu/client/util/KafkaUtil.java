@@ -20,9 +20,7 @@ public class KafkaUtil {
         this.kafkaProducer = kafkaProducer;
     }
 
-    public void send(String key, String content) {
-        //log.info("写入kafka: [{}, {}]", key, content);
-
+    public void send(String content) {
         ProducerRecord<String, String> record = new ProducerRecord(dataTopic, content);
         kafkaProducer.send(record);
     }

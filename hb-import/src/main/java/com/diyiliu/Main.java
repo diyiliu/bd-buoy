@@ -1,6 +1,6 @@
 package com.diyiliu;
 
-import com.diyiliu.process.ConsumeData;
+import com.diyiliu.process.DataConsumer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -38,11 +38,11 @@ public class Main {
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         KafkaConsumer kafkaConsumer = new KafkaConsumer(props);
 
-        ConsumeData consume = new ConsumeData();
-        consume.setConfig(config);
-        consume.setDataTopic("bd_buoy");
-        consume.setHbTable("dyl:bd_buoy");
-        consume.setKafkaConsumer(kafkaConsumer);
-        consume.start();
+        DataConsumer consumer = new DataConsumer();
+        consumer.setConfig(config);
+        consumer.setDataTopic("bd_buoy");
+        consumer.setHbTable("dyl:bd_buoy");
+        consumer.setKafkaConsumer(kafkaConsumer);
+        consumer.start();
     }
 }

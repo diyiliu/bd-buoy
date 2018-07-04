@@ -45,10 +45,10 @@ public class DataProcessAspect {
         map.put("id", dataInfo.getSim());
         map.put("timestamp", System.currentTimeMillis());
         map.put("data", JacksonUtil.toJson(dataInfo));
-        map.put("type", type);
+        map.put("type", dataInfo.getGpsLocation() + "");
 
         // 写入kafka
-        kafkaUtil.send(dataInfo.getSim(), JacksonUtil.toJson(map));
+        kafkaUtil.send(JacksonUtil.toJson(map));
     }
 
     private void updateInfo(DataInfo dataInfo, String type){

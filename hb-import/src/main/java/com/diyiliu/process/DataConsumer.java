@@ -18,13 +18,13 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import java.util.Arrays;
 
 /**
- * Description: ConsumeData
+ * Description: DataConsumer
  * Author: DIYILIU
  * Update: 2018-06-21 13:53
  */
 
 @Slf4j
-public class ConsumeData extends Thread {
+public class DataConsumer extends Thread {
     private final static byte[] CF = "0".getBytes();
 
     private String dataTopic;
