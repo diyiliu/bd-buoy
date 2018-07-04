@@ -28,7 +28,7 @@ public class DeviceInfoTask  implements ITask {
 
     @Override
     public void execute() {
-        log.info("刷新设备列表...");
+        log.info("刷新设备列表 ...");
 
         List<DeviceInfo> list = deviceDao.selectDeviceInfo();
         refresh(list, deviceCache);

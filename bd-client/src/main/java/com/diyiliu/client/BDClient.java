@@ -1,7 +1,8 @@
-package com.diyiliu;
+package com.diyiliu.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Description: BDClient
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
+@ComponentScan({"com.diyiliu.client","com.diyiliu.gw"})
 public class BDClient {
 
     public static void main(String[] args) {

@@ -6,9 +6,8 @@ import com.diyiliu.gw.support.task.DeviceInfoTask;
 import com.diyiliu.gw.support.task.DummyInfoTask;
 import com.diyiliu.plugin.cache.ICache;
 import com.diyiliu.plugin.task.ITask;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -24,6 +23,7 @@ import javax.annotation.Resource;
 
 @Configuration
 @EnableScheduling
+@PropertySource(value = {"classpath:config.properties"})
 public class SpringQuartz {
 
     @Resource

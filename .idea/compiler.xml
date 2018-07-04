@@ -11,6 +11,8 @@
       <module name="bd-client_test" target="1.8" />
       <module name="bd-gw_main" target="1.8" />
       <module name="bd-gw_test" target="1.8" />
+      <module name="bd-server_main" target="1.8" />
+      <module name="bd-server_test" target="1.8" />
       <module name="bd-service_main" target="1.8" />
       <module name="bd-service_test" target="1.8" />
       <module name="bd-web_main" target="1.8" />

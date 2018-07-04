@@ -1,27 +1,27 @@
-package com.diyiliu.support.client;
+package com.diyiliu.client.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
 /**
- * Description: KafkaClient
+ * Description: KafkaUtil
  * Author: DIYILIU
- * Update: 2018-06-20 16:57
+ * Update: 2018-07-04 09:05
  */
 
 @Slf4j
-public class KafkaClient {
+public class KafkaUtil {
     private String dataTopic;
     private KafkaProducer kafkaProducer;
 
-    public KafkaClient(String dataTopic, KafkaProducer kafkaProducer) {
+    public KafkaUtil(String dataTopic, KafkaProducer kafkaProducer) {
         this.dataTopic = dataTopic;
         this.kafkaProducer = kafkaProducer;
     }
 
     public void send(String key, String content) {
-        log.info("写入kafka: [{}, {}]", key, content);
+        //log.info("写入kafka: [{}, {}]", key, content);
 
         ProducerRecord<String, String> record = new ProducerRecord(dataTopic, content);
         kafkaProducer.send(record);

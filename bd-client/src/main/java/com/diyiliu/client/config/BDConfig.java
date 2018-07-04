@@ -1,11 +1,13 @@
-package com.diyiliu.support.config;
+package com.diyiliu.client.config;
 
+import com.diyiliu.client.util.KafkaUtil;
 import com.diyiliu.gw.netty.server.BDServer;
 import com.diyiliu.gw.support.client.ForwardWs;
-import com.diyiliu.support.client.KafkaClient;
+import com.diyiliu.gw.support.config.SpringQuartz;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -20,7 +22,9 @@ import java.util.Properties;
  * Update: 2018-06-20 10:49
  */
 
+
 @Configuration
+@AutoConfigureBefore(SpringQuartz.class)
 @PropertySource(value = {"classpath:config/bd.properties"})
 public class BDConfig {
 
@@ -48,7 +52,7 @@ public class BDConfig {
 
 
     @Bean
-    public KafkaClient kafkaClient(){
+    public KafkaUtil kafkaUtil(){
         String topic =  environment.getProperty("kafka.bd-topic");
         String brokerList = environment.getProperty("kafka.broker-list");
 
@@ -60,6 +64,6 @@ public class BDConfig {
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         KafkaProducer<String, String> producer = new KafkaProducer(props);
 
-        return new KafkaClient(topic, producer);
+        return new KafkaUtil(topic, producer);
     }
 }

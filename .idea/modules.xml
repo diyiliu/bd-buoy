@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw.iml" group="bd-gw" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_main.iml" group="bd-gw" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-gw/bd-gw_test.iml" group="bd-gw" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-server/bd-server.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-server/bd-server.iml" group="bd-server" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-web.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-web.iml" group="bd-web" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-web/bd-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-web/bd-web_main.iml" group="bd-web" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bd-web/bd-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bd-web/bd-web_test.iml" group="bd-web" />
