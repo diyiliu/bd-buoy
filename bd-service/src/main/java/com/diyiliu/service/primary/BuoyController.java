@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -40,10 +41,25 @@ public class BuoyController {
 
         Date start = calendar.getTime();
 
+        List<BuoyInfo> list = new ArrayList();
 
         List<DataInfo> dataInfos = hbaseUtil.scanBuoyList(sim, start, end, 0);
+        for (DataInfo dataInfo: dataInfos){
+            BuoyInfo buoyInfo = new BuoyInfo();
+            buoyInfo.setSim(dataInfo.getSim());
+            buoyInfo.setGpsLocation(dataInfo.getGpsLocation());
+            // buoyInfo.setGpsSignal(dataInfo.getGpsSignal());
+            buoyInfo.setGpsLat(dataInfo.getGpsLat());
+            buoyInfo.setGpsLng(dataInfo.getGpsLng());
+            buoyInfo.setSpeed(dataInfo.getSpeed());
+            buoyInfo.setAltitude(dataInfo.getHeight());
+            buoyInfo.setTemp(dataInfo.getTemp());
+            buoyInfo.setVoltage(dataInfo.getVoltage());
+            buoyInfo.setGpsTime(dataInfo.getGpsTime());
 
+            list.add(buoyInfo);
+        }
 
-        return null;
+        return list;
     }
 }
