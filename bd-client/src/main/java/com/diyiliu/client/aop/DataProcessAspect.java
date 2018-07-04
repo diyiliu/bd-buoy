@@ -38,6 +38,9 @@ public class DataProcessAspect {
         DataInfo dataInfo = (DataInfo) args[0];
         String type = String.valueOf(args[1]);
 
+        // 更新当前数据
+        updateInfo(dataInfo, type);
+
         Map map = new HashMap();
         map.put("id", dataInfo.getSim());
         map.put("timestamp", System.currentTimeMillis());
@@ -46,9 +49,6 @@ public class DataProcessAspect {
 
         // 写入kafka
         kafkaUtil.send(dataInfo.getSim(), JacksonUtil.toJson(map));
-
-        // 更新当前数据
-        updateInfo(dataInfo, type);
     }
 
     private void updateInfo(DataInfo dataInfo, String type){

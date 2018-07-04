@@ -5,7 +5,7 @@ drop table if exists buoy_info;
 /*==============================================================*/
 create table buoy_info
 (
-   id                   int,
+   id                   int NOT NULL AUTO_INCREMENT,
    sim                  varchar(20),
    name                 varchar(50),
    type                 varchar(5),
@@ -19,7 +19,8 @@ create table buoy_info
    temp                 numeric(6,2) comment '温度',
    voltage              numeric(8,2) comment '电压',
    sys_time             datetime,
-   create_time          datetime
+   create_time          datetime,
+   PRIMARY KEY (`ID`)
 );
 
 alter table buoy_info comment '浮球';
