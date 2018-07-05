@@ -22,7 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/buoy")
-@Api(description = "设备指令下发接口")
+@Api(description = "数据查询接口")
 public class BuoyController {
 
     @Resource
