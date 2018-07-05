@@ -37,13 +37,18 @@ public class DataProcessAspect {
 
         DataInfo dataInfo = (DataInfo) args[0];
         String type = String.valueOf(args[1]);
+        dataInfo.setSysTime(new Date());
 
         // 更新当前数据
         updateInfo(dataInfo, type);
 
+        // HBase 行健时间戳
+        long timestamp = dataInfo.getGpsTime() == null ? System.currentTimeMillis()
+                : dataInfo.getGpsTime().getTime();
+
         Map map = new HashMap();
         map.put("id", dataInfo.getSim());
-        map.put("timestamp", System.currentTimeMillis());
+        map.put("timestamp", timestamp);
         map.put("data", JacksonUtil.toJson(dataInfo));
         map.put("type", dataInfo.getGpsLocation() + "");
 
@@ -51,11 +56,11 @@ public class DataProcessAspect {
         kafkaUtil.send(JacksonUtil.toJson(map));
     }
 
-    private void updateInfo(DataInfo dataInfo, String type){
+    private void updateInfo(DataInfo dataInfo, String type) {
         String sim = dataInfo.getSim();
 
         BuoyInfo buoyInfo = buoyInfoJpa.findBySim(sim);
-        if (buoyInfo == null){
+        if (buoyInfo == null) {
             buoyInfo = new BuoyInfo();
             buoyInfo.setSim(sim);
             buoyInfo.setCreateTime(new Date());
@@ -71,7 +76,7 @@ public class DataProcessAspect {
         buoyInfo.setAltitude(dataInfo.getHeight());
         buoyInfo.setTemp(dataInfo.getTemp());
         buoyInfo.setVoltage(dataInfo.getVoltage());
-        buoyInfo.setSysTime(new Date());
+        buoyInfo.setSysTime(dataInfo.getSysTime());
 
         buoyInfoJpa.save(buoyInfo);
     }

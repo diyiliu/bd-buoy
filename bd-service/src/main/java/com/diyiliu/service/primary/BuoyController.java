@@ -1,18 +1,16 @@
 package com.diyiliu.service.primary;
 
+import com.diyiliu.plugin.util.DateUtil;
 import com.diyiliu.service.model.DataInfo;
 import com.diyiliu.service.primary.dto.BuoyInfo;
+import com.diyiliu.service.primary.facade.BuoyInfoJpa;
 import com.diyiliu.service.util.HBaseUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -30,36 +28,24 @@ public class BuoyController {
     @Resource
     private HBaseUtil hbaseUtil;
 
+    @Resource
+    private BuoyInfoJpa buoyInfoJpa;
+
     @GetMapping("/list/{sim}")
     @ApiOperation(value = "查询历史数据", notes = "查询浮球历史轨迹")
-    public List<BuoyInfo> queryBuoy(@PathVariable("sim") String sim) throws Exception{
+    public List<DataInfo> queryBuoy(@PathVariable("sim") String sim, @RequestParam("startTime") String startTime,
+                                    @RequestParam("endTime") String endTime, @RequestParam(value = "location", required = false) Integer location) throws Exception {
+        Date start = DateUtil.stringToDate(startTime);
+        Date end = DateUtil.stringToDate(endTime);
 
-        Date end = new Date();
+        return hbaseUtil.scanBuoyList(sim, start, end, location);
+    }
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
 
-        Date start = calendar.getTime();
+    @GetMapping("/list")
+    @ApiOperation(value = "查询实时数据", notes = "查询浮球当前位置")
+    public List<BuoyInfo> queryBuoy() {
 
-        List<BuoyInfo> list = new ArrayList();
-
-        List<DataInfo> dataInfos = hbaseUtil.scanBuoyList(sim, start, end, 0);
-        for (DataInfo dataInfo: dataInfos){
-            BuoyInfo buoyInfo = new BuoyInfo();
-            buoyInfo.setSim(dataInfo.getSim());
-            buoyInfo.setGpsLocation(dataInfo.getGpsLocation());
-            // buoyInfo.setGpsSignal(dataInfo.getGpsSignal());
-            buoyInfo.setGpsLat(dataInfo.getGpsLat());
-            buoyInfo.setGpsLng(dataInfo.getGpsLng());
-            buoyInfo.setSpeed(dataInfo.getSpeed());
-            buoyInfo.setAltitude(dataInfo.getHeight());
-            buoyInfo.setTemp(dataInfo.getTemp());
-            buoyInfo.setVoltage(dataInfo.getVoltage());
-            buoyInfo.setGpsTime(dataInfo.getGpsTime());
-
-            list.add(buoyInfo);
-        }
-
-        return list;
+        return buoyInfoJpa.findAll(Sort.by(Sort.Direction.DESC, "gpsTime"));
     }
 }

@@ -14,10 +14,15 @@ spring:
     username: root
     password: 123456
 
+  # JSON
+  jackson:
+    locale: zh_CN
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
 # LOGGING
 logging:
   config: 'classpath:logback.xml'
-
 
 hbase:
   zk-quorum: dyl-171,dyl-172,dyl-173

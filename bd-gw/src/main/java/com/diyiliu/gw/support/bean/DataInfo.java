@@ -39,4 +39,6 @@ public class DataInfo {
     private Double temp;
 
     private Double voltage;
+
+    private Date sysTime;
 }
