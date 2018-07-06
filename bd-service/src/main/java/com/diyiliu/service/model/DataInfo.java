@@ -15,6 +15,8 @@ public class DataInfo {
 
     private String sim;
 
+    private Date sysTime;
+
     private Date gpsTime;
 
     private Integer bdLocation;
