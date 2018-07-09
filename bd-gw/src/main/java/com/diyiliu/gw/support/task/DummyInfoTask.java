@@ -44,7 +44,7 @@ public class DummyInfoTask implements ITask {
 
     @Override
     public void execute() {
-        log.info("刷新假人邮件数据 ...");
+        log.info("刷新邮件数据 ...");
 
         List<DeviceInfo> list = deviceDao.selectDeviceInfo();
 

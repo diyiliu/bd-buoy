@@ -46,15 +46,15 @@ public class SpringQuartz {
      */
     @Scheduled(fixedDelay = 10 * 60 * 1000, initialDelay = 3 * 1000)
     public void refreshTaskDeviceInfo() {
-
         ITask task = new DeviceInfoTask(deviceInfoDao, deviceCacheProvider);
+
         task.execute();
     }
 
     /**
      * 处理假人数据
      */
-    @Scheduled(fixedDelay = 10 * 60 * 1000, initialDelay = 5 * 1000)
+    @Scheduled(fixedDelay = 3 * 60 * 1000, initialDelay = 5 * 1000)
     public void refreshTaskDummyInfo() {
         DummyInfoTask task = new DummyInfoTask();
         task.setDeviceDao(deviceInfoDao);
