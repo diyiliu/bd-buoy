@@ -132,7 +132,8 @@ public class DummyInfoTask implements ITask {
 
 
         double temp = Integer.parseInt(content.substring(34, 36), 16) * 2.0 / 10.0 - 10;
-        double voltage = Integer.parseInt(content.substring(36, 38), 16) / 10.0;
+        // v -> mv
+        double voltage = (Integer.parseInt(content.substring(36, 38), 16) / 10.0) * 1000;
         int interval = Integer.parseInt(content.substring(38), 16);
 
         long id = deviceInfo.getId();
