@@ -45,7 +45,7 @@
     <!-- 底部 -->
     <div class="login-footer">
         <h6>
-            天泽信息
+            © 徐州浦嘉科技
         </h6>
     </div>
 </div>
