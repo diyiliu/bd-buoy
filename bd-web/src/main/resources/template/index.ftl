@@ -55,7 +55,7 @@
                             <!-- 个人中心底部功能按钮 -->
                             <li class="user-footer">
                                 <div class="pull-right">
-                                    <a href="login.do" class="btn btn-default btn-flat">退出登录</a>
+                                    <a href="/logout" class="btn btn-default btn-flat">退出登录</a>
                                 </div>
                             </li>
                         </ul>

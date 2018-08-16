@@ -25,7 +25,7 @@ import java.util.Properties;
 
 @Configuration
 @AutoConfigureBefore(SpringQuartz.class)
-@PropertySource(value = {"classpath:config/bd.properties"})
+@PropertySource(value = {"classpath:bd.properties"})
 public class BDConfig {
 
     @Resource

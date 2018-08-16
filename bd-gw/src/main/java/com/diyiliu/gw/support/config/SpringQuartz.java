@@ -23,7 +23,7 @@ import javax.annotation.Resource;
 
 @Configuration
 @EnableScheduling
-@PropertySource(value = {"classpath:config.properties"})
+@PropertySource(value = {"classpath:bd.properties"})
 public class SpringQuartz {
 
     @Resource

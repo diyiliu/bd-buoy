@@ -34,6 +34,13 @@ public class HomeController {
         return "login";
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("us");
+
+        return "login";
+    }
+
     @PostMapping("/login")
     @ResponseBody
     public Account login(@RequestParam String username, @RequestParam String password,

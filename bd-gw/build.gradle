@@ -34,11 +34,9 @@ dependencies {
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
-
 // 打包jar 主函数
-/*
 jar {
-    archiveName = 'bd-gw.jar'
+/*  archiveName = 'bd-gw.jar'
 
     manifest {
         attributes(
@@ -52,8 +50,17 @@ jar {
             it.isDirectory() ? it : zipTree(it)
         }
     }
-}
 */
+    // 过滤所有配置文件
+    sourceSets {
+        main {
+            resources {
+                exclude '*.*'
+                exclude '**/'
+            }
+        }
+    }
+}
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
