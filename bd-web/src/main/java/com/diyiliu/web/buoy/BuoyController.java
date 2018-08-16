@@ -136,8 +136,6 @@ public class BuoyController {
     @PostMapping("/hisTrace")
     public List hisTrace(@RequestParam String cph, @RequestParam String startime, @RequestParam String endtime) {
         Buoy buoy = buoyJpa.findBuoyByName(cph);
-
-
         List list = new ArrayList();
         if (buoy == null) {
             list.add(0);

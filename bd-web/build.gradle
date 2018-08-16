@@ -1,7 +1,10 @@
 group 'com.diyiliu'
 version '1.0'
 
+
 apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 sourceCompatibility = 1.8
 
@@ -9,6 +12,8 @@ repositories {
     mavenLocal()
     mavenCentral()
     jcenter()
+    maven { url 'https://repo.spring.io/snapshot' }
+    maven { url 'https://repo.spring.io/milestone' }
 }
 
 ext{
@@ -33,6 +38,32 @@ dependencies {
     compile group: 'org.webjars.npm', name: 'bootstrap-datepicker', version: '1.7.1'
     compile group: 'org.webjars.npm', name: 'bootstrap-timepicker', version: '0.5.2'
     compile group: 'org.webjars.npm', name: 'bootstrap-slider', version: '9.10.0'
-
     compile group: 'org.webjars', name: 'font-awesome', version: '4.7.0'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+bootJar {
+    baseName = 'bd-web'
+    version = ''
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url 'https://repo.spring.io/snapshot' }
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.BUILD-SNAPSHOT'
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    // 显示警告详细信息
+//    options.compilerArgs << "-Xlint:unchecked"
 }

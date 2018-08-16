@@ -281,9 +281,6 @@
                                 lineArr.push([lngX, latY,]);
                             }
 
-
-
-
                             // 绘制轨迹
                             var polyline = new AMap.Polyline({
                                 map: mapb,

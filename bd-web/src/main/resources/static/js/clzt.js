@@ -132,7 +132,7 @@ var allpage;
                         }else if(fbsj.temp > 160){
                             hswd ="异常"
                         }else{
-                            hswd = fbsj.temp+" ℃";
+                            hswd = fbsj.temp.toFixed(2)+" ℃";
                         }
 
                         if (fbsj.voltage == null) {
