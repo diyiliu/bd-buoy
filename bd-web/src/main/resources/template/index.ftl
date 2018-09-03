@@ -313,7 +313,7 @@
 <script src="/static/plugin/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <script src="/static/plugin/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- date-range-picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="/static/js/moment.min.js"></script>
 <!-- Select2 -->
 <script src="/static/plugin/select2/select2.full.min.js"></script>
 

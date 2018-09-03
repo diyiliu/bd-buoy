@@ -2,8 +2,11 @@
   <library name="Gradle: org.apache.hbase:hbase-annotations:1.3.2">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/hbase/hbase-annotations/1.3.2/hbase-annotations-1.3.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.hbase/hbase-annotations/1.3.2/c63ed119526d4fbe19b9719cd94b2df6665a09bc/hbase-annotations-1.3.2.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.hbase/hbase-annotations/1.3.2/f8f6b959b534ac9cf25e485f1e135b60c1df23f5/hbase-annotations-1.3.2-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

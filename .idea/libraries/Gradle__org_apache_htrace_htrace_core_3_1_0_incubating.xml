@@ -2,8 +2,11 @@
   <library name="Gradle: org.apache.htrace:htrace-core:3.1.0-incubating">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/htrace/htrace-core/3.1.0-incubating/htrace-core-3.1.0-incubating.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.htrace/htrace-core/3.1.0-incubating/f73606e7c9ede5802335c290bf47490ad6d51df3/htrace-core-3.1.0-incubating.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.htrace/htrace-core/3.1.0-incubating/8235eca5e9cae7e0a1cd7e239fb6af24bc96e163/htrace-core-3.1.0-incubating-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

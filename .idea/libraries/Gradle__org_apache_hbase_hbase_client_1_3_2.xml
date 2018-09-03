@@ -2,8 +2,11 @@
   <library name="Gradle: org.apache.hbase:hbase-client:1.3.2">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/hbase/hbase-client/1.3.2/hbase-client-1.3.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.hbase/hbase-client/1.3.2/ef9c4a210845c2d26c0ded7dc4b63dfa71bbd36f/hbase-client-1.3.2.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.hbase/hbase-client/1.3.2/49ef826b9b3c432aef88f3d1b870165b3090af31/hbase-client-1.3.2-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

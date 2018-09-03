@@ -2,8 +2,11 @@
   <library name="Gradle: org.apache.kafka:kafka_2.12:1.1.0">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/apache/kafka/kafka_2.12/1.1.0/kafka_2.12-1.1.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.kafka/kafka_2.12/1.1.0/5fc0064b7250d33c0dde2e8cc49ef10ac39df98e/kafka_2.12-1.1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.apache.kafka/kafka_2.12/1.1.0/a1b4e8556a3b515ade1e13fb3bedd143d1e6b7e4/kafka_2.12-1.1.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -2,8 +2,11 @@
   <library name="Gradle: org.scala-lang:scala-reflect:2.12.4">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-reflect/2.12.4/scala-reflect-2.12.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-reflect/2.12.4/2df9e6015b97e35464edddd20eec392bb54fab11/scala-reflect-2.12.4.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-reflect/2.12.4/e94aaa61410bdc428367317f9583036ea4246a7a/scala-reflect-2.12.4-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
